@@ -1,0 +1,9 @@
+<view class="userShare">
+  <view class='userShare-thanks' >感谢您的评价，贝壳已经奖励到您的账户咯！</view>
+  <view class='userShare-prompt'>
+    <text class='userShare-prompt-one'>分享小程序给您的好友可以获得双倍贝壳奖励哦!</text>
+    <text class='userShare-prompt-two'>(贝壳可以兑换艾绒片和灸头哦，快去分享吧!)</text>
+    <button class='userShare-prompt-btn' open-type="share" bindtap="onShareAppMessage">分享</button>
+  </view>
+</view>
+<!-- wx:if="{{isComment}}" -->

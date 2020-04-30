@@ -1,0 +1,262 @@
+<wxs module="Formatter">
+module.exports = {
+	formatNumber: function(num, digits) {
+		return (num * 1 || 0).toFixed(digits);
+	}
+}
+</wxs>
+<import src='/template/productList-template/productList-template.wxml' />
+<view class="newMoxaStart" wx:if="{{therapy_details}}">
+	<!-- 用户协议 -->
+	<view class="userArgeeBox" wx:if="{{!agreed && devices && devices.length > 0}}">
+		<view class="userArgeeBox-flex">
+			<view class="userArgeeBox-content">
+				<image src="/static/image/moxastart/yonghuxuzhi.png" class="userArgeeBox-content-imgs"></image>
+				<text class="userArgeeBox-content-title">用户须知</text>
+				<scroll-view scroll-y lower-threshold="0" class="userArgeeBox-content-info">
+					<view class="userArgeeBox-content-container">
+						<text class="userArgeeBox-info-text">一、服务协议的确认和接纳
+            本软件的所有权和运作权归上海恩予智能科技有限公司所有。本服务协议具有法律约束力。用户通过注册程序阅读本服务协议并点击“同意”按钮完成注册，即表示已达成协议，认可并接受本服务协议的所有内容。如果用户不同意服务协议的条件，则不能获得使用小贝壳公司小贝壳软件及服务的权利。本软件的所有权和运作权归上海恩予智能科技有限公司所有。本服务协议具有法律约束力。用户通过注册程序阅读本服务协议并点击“同意”按钮完成注册，即表示已达成协议，认可并接受本服务协议的所有内容。如果用户不同意服务协议的条件，则不能获得使用小贝壳公司小贝壳软件及服务的权利。</text>
+					</view>
+				</scroll-view>
+				<view class="userArgeeBox-content-prompt" bindtap="bindAgreeRadioTap">
+					<view class="userArgeeBox-checkBox-radio">
+						<image src="{{userAgreed?'/static/image/moxastart/click.png':'/static/image/moxastart/nocheck.jpg'}}"></image>
+					</view>
+					<view class="userArgeeBox-promptTxt">我已阅读小贝壳软件使用许可、服务协议及免责声明</view>
+				</view>
+				<button class="userArgeeBox-content-btn" bindtap="bindAgreeButtonTap" disabled="{{!userAgreed}}">我同意</button>
+			</view>
+		</view>
+	</view>
+
+	<!-- 开始艾灸 -->
+	<view class="module-one" wx:if="{{devices && devices.length > 0}}">
+		<!-- 请选择 -->
+		<view class="choosebox">
+			<text class="choosebox-txt">请点击编号选择艾瑶珠</text>
+			<view class="choosebox-info" wx:if="{{moxType == 1 && devices && devices.length > 0}}">
+				方案进度
+				<text class="choosebox-info-time"> {{therapy_day}}/{{solution_days}} </text>(天)
+			</view>
+		</view>
+
+		<!-- 艾瑶珠 -->
+		<view class="orderNum">
+			<view class="orderNum-item {{currentDeviceIndex == index ? '' : 'orderNum-itemActive'}}" wx:for="{{devices}}" wx:key="index" data-index="{{index}}" bindtap="bindDeviceTap">{{item.model}}
+				<view class="orderNum-itemText-prompt" wx:if="{{item.acupoint}}">{{item.acupoint.detail_acupoint}}</view>
+			</view>
+		</view>
+
+		<!-- 穴位选择 -->
+		<view class="moxastartBox" wx:if="{{moxType == 1 && devices && devices.length > 0}}">
+			<scroll-view class="moxastartBox-container" scroll-x>
+				<view class="moxastartBox-list">
+					<view class="moxastartBox-itemPos" wx:for="{{therapy_details}}" wx:key="index">
+						<view class="moxastartBox-itemBox">
+							<view class="moxastartBox-item">
+								<view class="moxastartBox-itemLeft" data-index="{{index}}" bindtap="bindSetAcupoint">
+									<view class="moxastartBox-item-imgtype">
+										<image src="{{ossurl}}/acupoints_thumbnail/{{item.detail_acupoint}}/{{item.detail_acupoint}}.png" class="moxastartBox-item-moxaImg"></image>
+										<image src="/static/image/moxastart/click.png" class="moxastartBox-item-moxaIcon" wx:if="{{item.detail_state}}"></image>
+									</view>
+									<view class="moxastartBox-item-info">
+										<text class="moxastartBox-info-name">{{item.detail_acupoint}}({{item.detail_desc}})</text>
+										<view class='moxastartBox-info-type'>
+											<text class='moxastartBox-type-one'>{{item.detail_temperature}}℃</text>
+											<text class='moxastartBox-type-two'>{{item.detail_duration}}min</text>
+										</view>
+									</view>
+								</view>
+								<navigator class="moxastartBox-item-icon" url='../acupointDetails/acupointDetails?name={{item.detail_acupoint}}' open-type='navigate'>
+									<image src="/static/image/public/xuewei.jpg"></image>
+								</navigator>
+							</view>
+						</view>
+						<view class='pointType-item-line' wx:if="{{item.selected}}"></view>
+						<view class="moxastartBox-itemDisg" wx:if="{{item.selected || item.detail_state}}"></view>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<view class='moxa-program-searchBox' wx:elif="{{bluetoothOff}}">
+		<text class='moxa-program-searchTxt'>蓝牙已关闭，请通过系统设置启动蓝牙。</text>
+		<text class='moxa-program-searchBtn' bindtap="bindScanButtonTap">重新搜索</text>
+	</view>
+	<view class="moxaBox" wx:elif="{{noDeviceDetected}}">
+		<view class='moxa-program-searchBox'>
+			<text class='moxa-program-searchTxt'>未搜索到艾瑶珠，点击此处</text>
+			<text class='moxa-program-searchBtn' bindtap="bindScanButtonTap">重新搜索</text>
+		</view>
+		<view class="moxa-prompt">
+			<text class="moxa-prompt-title">贝壳精灵提示您搜索不到艾瑶珠可能是下面几点原因造成的哦。</text>
+			<view class="moxa-prompt-info">
+				<view class="moxa-prompt-infoleft">
+					<text class="prompt-infoleft-txt">1、手机蓝牙断开了，请检查手机蓝牙设置。</text>
+					<text class="prompt-infoleft-txt">2、艾瑶珠蓝牙断开，请关闭重启一下。
+        （关闭重启会造成程序中断）</text>
+					<text class="prompt-infoleft-txt">3、艾瑶珠没电了，请充电。</text>
+					<text class="prompt-infoleft-txt">4、连接延迟，请尝试下拉刷新重新连接。</text>
+				</view>
+				<view class="moxa-prompt-inforight">
+					<image class="prompt-inforight-img" src="../../../static/image/moxastart/jingling.png"></image>
+				</view>
+			</view>
+		</view>
+		<view class="moxa-scan">
+			<view class="moxa-scan-line"></view>
+			<text class="moxa-scan-txt">搜不到艾瑶珠随便看看吧</text>
+			<text class="moxa-scan-line"></text>
+		</view>
+		<!-- 艾灸商品 -->
+		<view class="pro-list">
+			<block wx:for="{{products}}" wx:key="index">
+				<template is="products" data="{{...item}}" />
+			</block>
+		</view>
+	</view>
+
+	<view class='moxa-program-searchBox' wx:else>
+		<text class='moxa-program-searchTxt'>正在搜索艾瑶珠，请稍候 。。。</text>
+	</view>
+
+	<!-- 艾灸管理 -->
+	<view class="moxaManage" wx:if="{{devices && devices.length > 0}}">
+		<view class="massageDetail-finishBox">
+			<text class="finishBox-left">艾灸管理</text>
+			<view class="finishBox-right">
+				<text class="finishBox-right-text">今天调理是否完成</text>
+				<view class="customize-switch {{switch_disabled?'customize-switchAct':''}}" bindtap="bindTherapyFinishTap">
+					<view class="customize-switch-circle {{switch_disabled?'customize-switch-circleAct':''}}"></view>
+					<text class="customize-switch-text">{{switch_disabled?"已完成":"未完成"}}</text>
+				</view>
+			</view>
+		</view>
+		<!-- 方案灸的盒子 -->
+		<swiper class="moxaManage-container" current="{{currentDeviceIndex}}" wx:if="{{moxType == 1 && devices && devices.length > 0}}" bindchange="bindSwiperChange">
+			<swiper-item class="moxaManage-item" wx:for="{{devices}}" wx:key="unique" wx:for-index="index">
+				<view class="moxaManage-itemCon" wx:if="{{item.battery}}">
+					<view class="moxaManage-itemConType">
+						<view class="moxaManage-itemConLeft">
+							<view class="moxaManage-moxaHeadType">
+								<image class="moxaHeadType-proImg" src="/static/image/moxastart/header.png"></image>
+								<text class="moxaHeadType-proName">{{item.model}}号艾瑶珠</text>
+								<view class="moxaHeadType-Battery">
+									<image class="moxaHeadType-Battery-img" src="/static/image/moxastart/Battery.png"></image>
+									<view class="moxaHeadType-Battery-progress">
+										<view class="moxaHeadType-Battery-progressBg">
+											<view class="moxaHeadType-Battery-progressBgTxt1" style='width:{{item.battery}}%' wx:if="{{item.battery < 5}}"></view>
+											<view class="moxaHeadType-Battery-progressBgTxt2" style='width:{{item.battery}}%' wx:elif="{{item.battery < 20}}"></view>
+											<view class="moxaHeadType-Battery-progressBgTxt3" style='width:{{item.battery}}%' wx:elif="{{item.battery < 50}}"></view>
+											<view class="moxaHeadType-Battery-progressBgTxt4" style='width:{{item.battery}}%' wx:else></view>
+										</view>
+									</view>
+								</view>
+								<view class="moxaHeadType-signal">
+									<image src="/static/image/moxastart/signal{{item.strength}}.png" class="moxaHeadType-signal-img"></image>
+								</view>
+							</view>
+							<view class="moxaManage-moxaType" wx:if="{{item.acupoint}}" bindtap="bindDeviceAcupointTap" bindlongtap="bindRemoveAcupoint">
+								<view class="moxastartBox-item-imgtype moxa-SpecialStyle">
+									<image src="{{ossurl}}/acupoints_thumbnail/{{item.acupoint.detail_acupoint}}/{{item.acupoint.detail_acupoint}}.png" class="moxastartBox-item-moxaImg"></image>
+								</view>
+								<view class="moxastartBox-item-info">
+									<text class="moxastartBox-info-name">{{item.acupoint.detail_acupoint}}({{item.acupoint.detail_desc}})</text>
+									<view class='moxastartBox-info-type'>
+										<text class='moxastartBox-type-one'>{{item.acupoint.detail_temperature}}℃</text>
+										<text class='moxastartBox-type-two'>{{item.acupoint.detail_duration}}min</text>
+									</view>
+								</view>
+							</view>
+							<view class="moxaManage-moxaType bgOpacity" wx:else>
+								<view class="moxastartBox-item-imgtype moxa-SpecialStyle">
+									<image class="moxastartBox-item-moxaImg"></image>
+								</view>
+								<view class="moxastartBox-item-info">
+									<text class="moxastartBox-info-name">未选择</text>
+									<view class='moxastartBox-info-type'>
+										<text class='moxastartBox-type-one'>-℃</text>
+										<text class='moxastartBox-type-two'>-min</text>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view bindtap="bindSwitchTap" data-value="0" data-index="{{index}}" class="animation-btnBox" wx:if="{{item.switch == 1}}">
+							<button class="moxaManage-itemConRight">结束</button>
+							<view class="animation-circle1"></view>
+							<view class="animation-circle2"></view>
+						</view>
+						<button bindtap="bindSwitchTap" data-value="1" data-index="{{index}}" class="moxaManage-itemConRight {{item.battery < 5 ? 'bgOpacity' : ''}}" wx:else>开始</button>
+					</view>
+					<!-- 进度条 -->
+					<view class="progress_flex">
+						<view class="progress_out">
+							<view class="progress_in" style="width:{{Formatter.formatNumber(100 * item.runningTime / item.maxRunningTime, 2)}}%"></view>
+						</view>
+						<text class="progress_num">{{Formatter.formatNumber(100 * item.runningTime / item.maxRunningTime, 2)}}%</text>
+					</view>
+					<!-- 艾灸时间温度 -->
+					<view class="moxaManage-kindsEvent">
+						<view class="moxaManage-kindsEvent-container">
+							<view class="kindsEvent-left kindsEvent-pub">
+								<text class="kindsEvent-left-time">{{item.runningTime / 60 | Int }}分钟</text>
+								<text class="kindsEvent-left-txt">已艾灸时间</text>
+							</view>
+							<view class="kindsEvent-center">
+								<text class="kindsEvent-left-time">{{item.temperature || 0}}℃</text>
+								<text class="kindsEvent-left-txt">当前温度</text>
+							</view>
+							<view class="kindsEvent-right kindsEvent-pub">
+								<view class="kindsEvent-right-tem">
+									<button class="kindsEvent-right-temBtn" data-offset="-1" bindtap="bindAdjustTargetTemperature" bindlongtap="bindAdjustTargetTemperature" disabled="{{item.targetTemperature <= MOX_MINIMUM_TEMPERATURE}}">-</button>
+									<text class="kindsEvent-right-temTxt">{{item.targetTemperature || 0}}</text>
+									<button class="kindsEvent-right-temBtn" data-offset="1" bindlongtap="bindAdjustTargetTemperature" bindtap="bindAdjustTargetTemperature" disabled="{{item.targetTemperature >= MOX_MAXIMUM_TEMPERATURE}}">+</button>
+								</view>
+								<text class="kindsEvent-right-temNow">目标温度</text>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="flex_search" wx:else>
+					<view class="flex_container">
+						<view class="radar"></view>
+						<view class="flex_text">数据读取中...</view>
+					</view>
+				</view>
+				<!-- <view >
+					正在读取数据...
+				</view> -->
+			</swiper-item>
+		</swiper>
+	</view>
+	<!-- 注意事项 -->
+	<view class='moxa-start-note' wx:if="{{devices && devices.length > 0}}">
+		<view class="moxa-start-container">
+			<view>
+				<view class='moxa-start-note-title'>注意事项</view>
+				<view class='moxa-start-note-txt'>
+					<text wx:for="{{noticeItems}}" wx:key="index">{{item}}</text>
+				</view>
+			</view>
+			<view class="moxa-start-note-other">
+				<view class='moxa-start-note-title'>施灸禁忌</view>
+				<view class='moxa-start-note-txt'>
+					<text wx:for="{{announceItems}}" wx:key="index">{{item}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 分享提示 -->
+	<view class='moxa-startBox' wx:if="{{showShare}}">
+		<view class='moxa-startBox-share'>
+			<view class='moxa-startBox-shareContent'>
+				<image src='/static/image/public/close.png' class='shareContent-img' bindtap='bindCloseShareTap'></image>
+				<text class='shareContent-title'>快分享给好朋友获取贝壳吧!</text>
+				<text class='shareContent-txt'>(贝壳可以兑换艾绒片和艾瑶珠哦)</text>
+				<button class='shareContent-btn' bindtap='bindShareTap'>分享</button>
+			</view>
+		</view>
+	</view>
+</view>

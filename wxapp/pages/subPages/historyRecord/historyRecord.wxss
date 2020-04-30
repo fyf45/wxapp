@@ -1,0 +1,240 @@
+.historyRecord {
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  /* background: rgba(0,0,0,.5) */
+}
+
+.historyRecord-active {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 74rpx;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.historyRecord-operating {
+  height: 74rpx;
+  padding: 0 25rpx 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+}
+
+.historyRecord-allRecord {
+  position: relative;
+  padding-left: 40rpx;
+}
+
+.historyRecord-allRecord-sContent,
+.historyRecord-deleteRecord {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.historyRecord-allRecord-sTxt,
+.historyRecord-deleteRecord-sTxt {
+  font-size: 32rpx;
+  color: #353535;
+}
+
+.historyRecord-allRecord-sTxt {
+  width: 150rpx;
+}
+
+.historyRecord-deleteRecord-sTxt {
+  padding-left: 8rpx;
+  text-align: center;
+}
+
+.historyRecord-allRecord-sImg {
+  width: 17rpx;
+  height: 9rpx;
+}
+
+.historyRecord-deleteRecord-sImg {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+/* 记录列表 */
+
+.historyRecord-container {
+  padding: 0 24rpx;
+  background: #fafafa;
+  /* border: 1px solid blue; */
+}
+
+.historyRecord-container-box {
+  flex: 1;
+  width: 95%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 110rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx rgba(225, 224, 224, 1);
+  border-radius: 5px;
+}
+
+swiper {
+  height: 140rpx;
+}
+
+.historyRecord-container-btn {
+  width: 163rpx;
+  height: 110rpx;
+  background-color: #ef486e;
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 110rpx;
+  margin-left: 10px;
+}
+
+.historyRecord-container-btn::after {
+  border: none;
+}
+
+.historyRecord-container-itemAcitve .historyRecord-container-box {
+  transform: translateX(0);
+}
+
+.historyRecord-container-itemAcitve .historyRecord-container-btn {
+  transform: translateX(0);
+}
+
+.historyRecord-container-checked {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 20rpx;
+}
+
+
+
+.historyRecord-container-dateType,
+.historyRecord-container-nameType,
+.historyRecord-container-timeType {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.historyRecord-container-dateType,.historyRecord-container-timeType{
+  width: 150rpx;
+}
+.historyRecord-container-nameType{
+  flex: 1;
+}
+
+
+.historyRecord-container-icon {
+  width: 16rpx;
+  height: 29rpx;
+}
+.margin-style {
+  margin-right: 30rpx;
+}
+.historyRecord-container-iconImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.historyRecord-dateType-date,
+.historyRecord-dateType-time {
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.historyRecord-nameType-name {
+  font-size: 32rpx;
+  color: #525252;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.historyRecord-nameType-name,
+.historyRecord-dateType-date,
+.historyRecord-timeType-time {
+  padding-bottom: 10rpx;
+}
+
+.historyRecord-nameType-time,
+.historyRecord-timeType-txt {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.historyRecord-timeType-time {
+  font-size: 32rpx;
+  color: #353535;
+}
+
+
+.historyRecord-swiperItem1 {
+  width: 700rpx !important;
+  margin-left: -550rpx;
+  overflow: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.historyRecord-swiperItem2 {
+  text-align: center;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 163rpx;
+}
+
+.commonNullContainer-img {
+  display: block;
+  width: 102rpx;
+  height: 95rpx;
+}
+
+.bottom_prompt {
+  margin: 50rpx auto 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: rgba(204, 204, 204, 1);
+}
+
+.down_prompt {
+  position: relative;
+  text-align: center;
+}
+
+.down_prompt_txt {
+  font-size: 24rpx;
+  color: rgba(204, 204, 204, 1);
+}
+
+.down_prompt_txt::before,
+.down_prompt_txt::after {
+  display: block;
+  content: "";
+  width: 52rpx;
+  height: 0rpx;
+  border-bottom: 1rpx solid rgba(204, 204, 204, .6);
+  position: absolute;
+  top: 50%;
+}
+
+.down_prompt_txt::before {
+  left: 30%;
+}
+
+.down_prompt_txt::after {
+  left: 62%;
+}

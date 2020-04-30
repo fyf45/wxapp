@@ -1,0 +1,52 @@
+<view class="personInformation">
+  <view class='personInformation-list'>
+    <!--头像 -->
+    <view class='personInformation-headType'>
+      <text class='personInformation-head-name'>头像</text>
+      <view class='personInformation-headBox' bindtap='bindAvatarChange'>
+        <image class='personInformation-headBox-img' src='{{avatar}}'></image>
+        <image class='personInformation-headBox-icon' src='/static/image/personInfo/gerexinx_photo.png'></image>
+      </view>
+      <canvas canvas-id="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px;position: absolute;left:-1000px;top:-1000px;"></canvas>
+    </view>
+    <!-- 昵称 -->
+    <view class='personInformation-pubItem'>
+      <text class='pubItem-name'>昵称</text>
+      <input value='{{name}}' class='pubItem-int' disabled="true" />
+    </view>
+    <!-- 性别 -->
+    <picker mode="selector" bindchange="bindGenderChange" value="{{gender}}" range="{{genderData}}">
+      <view class="personInformation-pubItem">
+        <text class='pubItem-name'>性别</text>
+        <input value='{{genderData[gender]}}' class='pubItem-int' disabled/>
+        <image class='pubItem-img' src='/static/image/personInfo/gernexinxi_jinru.png'></image>
+      </view>
+    </picker>
+    <!-- 生日 -->
+    <picker mode="date" fields="day" value="{{birthday}}" start="{{birthday_start}}" end="{{birthday_end}}" bindchange="bindBirthdayChange">
+      <view class='personInformation-pubItem'>
+        <text class='pubItem-name'>生日</text>
+        <input value='{{birthday}}' class='pubItem-int' disabled/>
+        <image class='pubItem-img' src='/static/image/personInfo/gernexinxi_jinru.png'></image>
+      </view>
+    </picker>
+    <!-- 职业 -->
+    <picker mode="selector" bindchange="bindOccupationChange" value='{{occupation}}' range="{{occupations}}">
+      <view class='personInformation-pubItem'>
+        <text class='pubItem-name'>职业</text>
+        <input value="{{occupations[occupation]}} " class='pubItem-int' disabled/>
+        <image class='pubItem-img' src='/static/image/personInfo/gernexinxi_jinru.png'></image>
+      </view>
+    </picker>
+    <!-- 地区 -->
+    <picker mode="region" value='{{region}}' bindchange="bindRegionChange">
+      <view class='personInformation-pubItem' bindtap="openLocation">
+        <text class='pubItem-name'>地区</text>
+        <input value='{{region[0] ? region : ""}}' class='pubItem-int' disabled/>
+        <image class='pubItem-img' src='/static/image/personInfo/gernexinxi_jinru.png'></image>
+      </view>
+    </picker>
+    <!-- 保存提交 -->
+  </view>
+  <button class='addressFill-form-submit' hover-class='addressFill-form-submitActive' bindtap='bindSave' disabled="{{!(gender && birthday && occupation && region)}}">保存</button>
+</view>

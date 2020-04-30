@@ -1,0 +1,109 @@
+.contact {
+  width: 100%;
+  min-height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+.contact-info {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.contact-suggest, .contact-customer {
+  width: 339rpx;
+  height: 159rpx;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #c5c5c5;
+  border-radius: 5px;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #353535;
+  margin: 0;
+  padding: 0;
+}
+.gogzh{
+  margin-top: 24rpx;
+}
+.contact-suggest-icon, .contact-customer-icon {
+  display: block;
+  width: 33rpx;
+  height: 33rpx;
+  margin-right: 14rpx;
+}
+
+.contact-title {
+  padding: 35rpx 0 30rpx 0;
+  font-size: 32rpx;
+  color: #353535;
+  text-align: center;
+}
+
+/* 常见问题 */
+
+.contact-list {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 8px;
+}
+
+.contact-item {
+  margin: 0 24rpx;
+  border-bottom: 1rpx solid rgba(213, 212, 212, 0.6);
+}
+
+.contact-item-question {
+  height: 103rpx;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-item-txt {
+  flex: 1;
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 0.6);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.contact-item-txtActive {
+  flex: 1;
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 1);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.contact-item-icon {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+
+.contact-item-iconDown {
+  display: block;
+  width: 18rpx;
+  height: 30rpx;
+  margin-left: 8rpx
+}
+
+.contact-item-answer {
+  padding: 0 40rpx 0 20rpx;
+  display: -webkit-flex;
+  flex-direction: column;
+  padding-bottom: 48rpx;
+}
+
+.contact-answer-txt {
+  padding-top: 8rpx;
+  font-size: 26rpx;
+  line-height: 48rpx;
+  color: rgba(53, 53, 53, 0.6);
+  text-align: justify
+}

@@ -1,0 +1,70 @@
+.searchBox{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.search-btn{
+  font-size: 28rpx;
+  color: #ef486e;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border-radius: 5px;
+  height: 64rpx;
+  width: 96rpx;
+  line-height: 64rpx;
+  border: 1rpx solid #ef486e;
+}
+.search-btn::after{
+  border: none;
+}
+.search-btn-hover{
+  background: #f8f6f6;
+}
+.search-img{
+  width: 35rpx;
+	height: 35rpx;
+}
+/* 搜索 */
+.search {
+  width: 610rpx;
+  height: 64rpx;
+  background-color: #ffffff;
+  border-radius: 32rpx;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  padding:0 24rpx;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx 
+    #e1e0e0;
+  border-radius: 32rpx;
+  background-color: none;
+  font-size: 30rpx;
+  color: rgba(53, 53, 53, .8);
+}
+
+.search .search-int {
+  width: 80%;
+  height: 100%;
+  font-size: 30rpx;
+  color: rgba(53, 53, 53, .8);
+  padding-left: 24rpx;
+}
+
+.place-holder {
+  font-size: 24rpx;
+  color: #abaaaf;
+  font-family: PingFang-SC-Regular;
+}
+
+.search-img{
+  width: 35rpx;
+	height: 35rpx;
+}
+.search-imgBox{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

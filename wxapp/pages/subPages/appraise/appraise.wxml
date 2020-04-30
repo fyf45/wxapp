@@ -1,0 +1,25 @@
+<view class="appraise">
+  <!-- 评分 -->
+  <view class='appraise-rateBox'>
+    <view class='appraise-rateTitle'>
+      <text class='appraise-rateText'>方案评分</text>
+    </view>
+    <view class='appraise-rateList'>
+      <view class='appraise-rateItem' wx:for="{{5}}" wx:key="index" bindtap='bindStarTap'>
+        <image 
+          class='appraise-rateItem-img' 
+          src='{{score > index ? "/static/image/appraise/xin.png" : "/static/image/appraise/kongxin.png" }}'
+          data-score="{{index+1}}"
+        ></image>
+      </view>
+    </view>
+  </view>
+  <!-- 评论文本 -->
+  <view class='appraise-textAreaBox'>
+    <textarea value='{{intVal}}' class='appraise-textArea' placeholder="写下您的感受吧" placeholder-class="appraise-textArea-placeholder" bindinput="bindCommentChange" bindconfirm="bindButtonTap"></textarea>
+  </view>
+  <!-- 完成按钮 -->
+  <view class='appraise-btnBox' bindtap='bindButtonTap'>
+    <view class='appraise-btn'>完成</view>
+  </view>
+</view>

@@ -1,0 +1,1154 @@
+@import '/template/productList-template/productList-template.wxss';
+.newMoxaStart {
+  width: 100%;
+  min-height: 100%;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+/* 用户协议样式 */
+
+.userArgeeBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.userArgeeBox-flex {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userArgeeBox-close image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.userArgeeBox-content {
+  width: 620rpx;
+  height: 1000rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userArgeeBox-content-imgs {
+  display: block;
+  width: 100%;
+  height: 265rpx;
+}
+
+.userArgeeBox-content-title {
+  padding: 30rpx 0 30rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: rgba(51, 85, 53, 1);
+}
+
+.userArgeeBox-content-container {
+  text-align: justify;
+  display: -webkit-flex;
+  flex-direction: column;
+  color: rgb(162, 162, 162);
+  font-size: 24rpx;
+  line-height: 42rpx;
+}
+
+.userArgeeBox-content-info {
+  width: 490rpx;
+  height: 420rpx;
+  margin-bottom: 20rpx;
+}
+
+.userArgeeBox-info-title:nth-child(1) {
+  padding-top: 0;
+}
+
+.userArgeeBox-info-title {
+  color: rgba(53, 53, 53, 1);
+  padding: 20rpx 0;
+}
+
+.userArgeeBox-content-checkBox {
+  padding-top: 20rpx;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.userArgeeBox-content-prompt {
+  width: 490rpx;
+  padding: 20rpx 0 20rpx;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.userArgeeBox-promptIcon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-top: 8rpx;
+  margin-right: 8rpx;
+}
+
+.userArgeeBox-checkBox-text {
+  flex: 1;
+  font-size: 24rpx;
+  text-align: justify;
+  color: rgba(144, 144, 144, 1);
+}
+
+.userArgeeBox-promptTxt {
+  flex: 1;
+  font-size: 24rpx;
+  text-align: justify;
+  color: rgba(144, 144, 144, 1);
+}
+
+.userArgeeBox-content-btn {
+  width: 277rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgba(239, 72, 110, 1);
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.userArgeeBox-content-btn:disabled {
+  background-color: rgba(239, 72, 110, 0.5);
+}
+
+.userArgeeBox-checkBox-radio {
+  width: 24rpx;
+  height: 24rpx;
+  margin-top: 8rpx;
+  margin-right: 8rpx;
+}
+
+.userArgeeBox-checkBox-radio image, .userArgeeBox-promptIcon image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 开始艾灸模块1 */
+
+.module-one {
+  width: 100%;
+  height: 343rpx;
+  background-color: #ef486e;
+  position: relative;
+}
+
+.module-one::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+/* 选择灸头 */
+
+.choosebox {
+  padding: 36rpx 24rpx 50rpx;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.choosebox-txt {
+  padding-left: 24rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+
+.choosebox-info {
+  width: 270rpx;
+  height: 51rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 51rpx;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.choosebox-info-time {
+  color: rgba(0, 0, 0, 1);
+  font-weight: bold;
+}
+
+/* 重新搜索 */
+
+.moxa-program-searchBox {
+  margin: 24rpx;
+  height: 134rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx rgba(197, 197, 197, 1);
+  border-radius: 5px;
+}
+
+.moxa-program-searchTxt {
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+
+.moxa-program-searchBtn {
+  font-size: 28rpx;
+  color: #ef486e;
+  text-decoration: underline;
+  padding-left: 10rpx;
+}
+
+/* 灸头样式 */
+
+.orderNum {
+  padding-left: 48rpx;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+}
+
+.orderNum-item {
+  width: 64rpx;
+  height: 64rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 64rpx;
+  color: rgba(239, 72, 110, 1);
+  position: relative;
+  margin-right: 52rpx;
+}
+
+.orderNum-itemActive {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.orderNum-itemText-prompt {
+  position: absolute;
+  top: 0;
+  right: -28rpx;
+  width: 49rpx;
+  height: 26rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 26rpx;
+  font-size: 16rpx;
+  color: rgba(239, 72, 110, 1);
+}
+/* 艾灸搜索 */
+.moxa-prompt{
+  margin:0  24rpx;
+  padding: 50rpx;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0rpx 3rpx 29rpx 0rpx 
+		rgba(225, 224, 224, 1);
+	border-radius: 10rpx;
+} 
+.moxa-prompt-title{
+  font-size: 28rpx;
+	color: rgba(0, 0, 0, .8);
+}
+.moxa-prompt-info{
+  padding-top: 40rpx;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.moxa-prompt-infoleft{
+  flex: 1;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.moxa-prompt-inforight{
+  width: 180rpx;
+	height: 186rpx;
+}
+.prompt-inforight-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.prompt-infoleft-txt{
+  font-size: 25rpx;
+	line-height: 46rpx;
+  text-align: justify;
+	color: rgba(53, 53, 53, .8);
+}
+.moxa-scan{
+  margin: 40rpx 24rpx;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.moxa-scan-txt{
+  font-size: 26rpx;
+	color: rgba(153, 153, 153, 1);
+  padding: 0 24rpx;
+}
+.moxa-scan-line{
+  display: block;
+  flex: 1;
+  height: 1rpx;
+  border: 1rpx solid rgba(0, 0, 0, .1)
+}
+/* 穴位选择 */
+
+.bgOpacity {
+  opacity: 0.5;
+}
+
+.moxastartBox {
+  width: 700rpx;
+  height: 133rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 29rpx 0rpx rgba(197, 197, 197, 1);
+  border-radius: 5px;
+  position: absolute;
+  bottom: -43rpx;
+  left: 50%;
+  margin-left: -350rpx;
+}
+
+.moxastartBox-container {
+  width: 100%;
+  height: 100%;
+}
+
+.moxastartBox-list {
+  height: 100%;
+  white-space: nowrap;
+}
+
+.moxastartBox-itemPos {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+
+.moxastartBox-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border-right: 1rpx solid #e2e2e2!important;
+}
+.moxastartBox-itemLeft{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.moxastartBox-itemBox{
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  align-items: center;
+}
+.moxastartBox-itemPos:last-child>.moxastartBox-itemBox >.moxastartBox-item{
+  border: none;
+}
+.moxastartBox-itemDisg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0.5;
+  z-index: 10;
+}
+.pointType-item-line {
+  width: 75%;
+  height: 0;
+  border-bottom: 2px solid #ef486e;
+  position: absolute;
+  left: 24rpx;
+  bottom: 0rpx;
+  transition: 0.8s 0.8s linear;
+}
+
+.moxastartBox-item-imgtype {
+  width: 70rpx;
+	height: 70rpx;
+	border-radius: 5px;
+  margin-left: 24rpx;
+  margin-top: 10rpx;
+  position: relative;
+}
+
+.moxastartBox-item-moxaIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 24rpx;
+  height: 24rpx;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 11;
+}
+
+.moxastartBox-item-moxaImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.moxastartBox-item-info {
+  padding: 0 16rpx;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.moxastartBox-info-name {
+  font-size: 28rpx;
+	color: #000000;
+}
+
+.moxastartBox-info-type {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.moxastartBox-type-one, .moxastartBox-type-two {
+  font-size: 27rpx;
+  color: #b2b2b2;
+}
+
+.moxastartBox-type-two {
+  padding-left: 16rpx;
+}
+
+.moxastartBox-item-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 24rpx;
+}
+
+.moxastartBox-item-moxaImg image, .moxastartBox-item-icon image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 艾灸管理 */
+
+.moxaManage {
+  padding: 43rpx 0rpx 0rpx;
+}
+
+.moxaManage-title {
+  display: inline-block;
+  font-size: 34rpx;
+  color: rgba(0, 0, 0, 1);
+  padding: 30rpx 0 0rpx 24rpx;
+}
+
+.moxaManage-container {
+  height: 450rpx !important;
+}
+
+.moxaManage-item {
+  width: 700rpx !important;
+  padding: 24rpx;
+}
+
+.moxastartBox-item:last-child {
+  border: none;
+}
+
+.moxaManage-itemCon {
+  width: 100%;
+  height: 364rpx !important;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 29rpx 0rpx rgba(186, 178, 178, 1);
+  border-radius: 5px;
+  padding: 24rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.moxaManage-itemConType {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.moxa-SpecialStyle {
+  margin-left: 0;
+  background: rgba(219, 219, 219, 1);
+}
+
+.moxaManage-kindsEvent {
+  width: 655rpx;
+  height: 135rpx;
+  position: absolute;
+  left: 50%;
+  bottom: -54rpx;
+  margin-left: -327.5rpx;
+  background-color: rgba(239, 72, 110, 1);
+  border-radius: 5px;
+}
+
+.moxaManage-itemConLeft {
+  flex: 1;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.moxaManage-moxaHeadType {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.moxaHeadType-proImg {
+  display: block;
+  width: 36rpx;
+  height: 31rpx;
+}
+
+.moxaHeadType-proName {
+  font-size: 30rpx;
+  color: rgba(239, 72, 110, 1);
+  padding: 0 10rpx;
+}
+
+.moxaHeadType-Battery {
+  position: relative;
+}
+
+.moxaHeadType-Battery-img {
+  display: block;
+  width: 42rpx;
+  height: 19rpx;
+  z-index: 99;
+}
+.moxaHeadType-signal{
+  margin-bottom: 5rpx;
+  margin-left: 20rpx;
+  width: 40rpx;
+  height: 32rpx;
+}
+.moxaHeadType-signal-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.moxaHeadType-Battery-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.moxaHeadType-Battery-progressBg {
+  width: 100%;
+  height: 100%;
+  padding: 2rpx 5rpx 3rpx 3rpx;
+}
+
+.moxaHeadType-Battery-progressBgTxt1 {
+  width: 70%;
+  height: 100%;
+  background: #ee2733;
+}
+
+.moxaHeadType-Battery-progressBgTxt2 {
+  width: 70%;
+  height: 100%;
+  background: #fd8e23;
+}
+
+.moxaHeadType-Battery-progressBgTxt3 {
+  width: 70%;
+  height: 100%;
+  background: #fedb46;
+}
+
+.moxaHeadType-Battery-progressBgTxt4 {
+  width: 70%;
+  height: 100%;
+  background: #43d552;
+}
+
+.moxaHeadType-Battery-text {
+  font-size: 26rpx;
+  color: rgba(144, 144, 144, 1);
+  padding-left: 10rpx;
+}
+
+.moxaHeadType-Battery-low-text {
+  color: rgba(239, 72, 110, 1);
+}
+
+.moxaManage-moxaType {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+}
+
+.moxaManage-itemConRight {
+  width: 90rpx;
+  height: 90rpx;
+  background-color: rgba(239, 72, 110, 1);
+  border-radius: 50%;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  margin: 0;
+  padding: 0;
+}
+/* 进度条 */
+
+.moxaManage-itemConProcess {
+  margin-top: 30rpx;
+  color: rgba(239, 72, 110, 1);
+  font-size: 28rpx;
+}
+
+/* 艾灸时间  温度 */
+
+.moxaManage-kindsEvent-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kindsEvent-pub{
+  flex: 1;
+}
+.kindsEvent-center{
+  width: 168rpx;
+}
+.kindsEvent-left, .kindsEvent-center {
+  border-right: 1rpx solid rgba(255, 255, 255, 0.5);
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+.kindsEvent-left-time {
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.kindsEvent-left-txt, .kindsEvent-right-temNow {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.kindsEvent-right {
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.kindsEvent-right-tem {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.kindsEvent-right-temBtn {
+  background-color: rgba(239, 72, 110, 1);
+  padding: 0;
+  width: 50px;
+  height: 25px;
+  line-height: 45rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.kindsEvent-right-temBtn::after {
+  border: none;
+}
+
+.kindsEvent-right-temTxt {
+  font-size: 36rpx;
+  color: #fff;
+}
+/*  注意事项 */
+
+.moxa-start-note {
+  width: 100%;
+  padding: 24rpx;
+  margin-bottom: 100rpx;
+}
+
+.moxa-start-container {
+  padding-top: 24rpx;
+  padding-left: 33rpx;
+  padding-bottom: 32rpx;
+  padding-right: 33rpx;
+  background-color: #fff;
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+}
+
+.moxa-start-note-title {
+  font-size: 38rpx;
+  color: rgba(82, 82, 82, 1);
+  padding-bottom: 19rpx;
+}
+
+.moxa-start-note-txt {
+  font-size: 28rpx;
+  color: #909090;
+  display: flex;
+  flex-direction: column;
+}
+
+.moxa-start-note-txt text {
+  margin: 5rpx 0 5rpx 0;
+  text-align: justify;
+}
+.moxa-start-note-other{
+  padding-top: 24rpx;
+}
+/* 分享提示 */
+
+.moxa-startBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.moxa-startBox-share {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moxa-startBox-shareContent {
+  position: relative;
+  width: 534rpx;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.shareContent-img {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  top: 20rpx;
+  right: 20rpx;
+  border-radius: 50%;
+}
+
+.shareContent-title {
+  display: block;
+  font-size: 34rpx;
+  color: #726e6e;
+  padding: 83rpx 0 24rpx;
+  text-align: center;
+}
+
+.shareContent-txt {
+  display: block;
+  font-size: 32rpx;
+  color: #b7b7b7;
+  text-align: center;
+  padding-bottom: 53rpx;
+}
+
+.shareContent-btn {
+  width: 80%;
+  height: 72rpx;
+  background-color: #ef486e;
+  border-radius: 10rpx;
+  line-height: 72rpx;
+  color: #fff;
+  font-size: 34rpx;
+  margin-bottom: 53rpx;
+}
+
+.moxa-button-area {
+  background-color: #fff;
+  width: 100%;
+  padding: 15rpx 24rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+/* 按摩计时 */
+
+.massageDetail-finishBox {
+  padding: 0 24rpx;
+  margin: 48rpx 0 20rpx;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.finishBox-left {
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 1);
+}
+
+.finishBox-right {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.finishBox-right-text {
+  font-size: 28rpx;
+  color: rgba(178, 178, 178, 1);
+  padding-right: 20rpx;
+}
+
+/*swtich整体大小及背景色*/
+
+.customize-switch {
+  width: 158rpx;
+  height: 60rpx;
+  background-color: rgba(202, 202, 202, 1);
+  border-radius: 30rpx;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+
+/*白色样式（false的样式）*/
+
+.customize-switch-text {
+  width: 108rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+  padding-bottom: 4rpx;
+}
+
+/*绿色样式（true的样式）*/
+.customize-switch-circle{
+    position: absolute;
+    top: 5rpx;
+    left: 5rpx;
+    width: 50rpx;
+	  height: 50rpx;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+.customize-switch-circleAct{
+    left:105rpx;
+}
+.customize-switchAct{
+  background-image: linear-gradient(-80deg, 
+		rgba(238, 67, 105, 0.96) 0%, 
+		rgba(253, 121, 161, 0.96) 100%, 
+		rgba(254, 188, 208, 0.96) 100%, 
+		rgba(255, 255, 255, 0.96) 100%), 
+	linear-gradient(
+		rgba(202, 202, 202, 1), 
+		rgba(202, 202, 202, 1));
+    justify-content: flex-start;
+}
+
+/* 按钮动画 */
+
+@keyframes warn {
+            0% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.5);
+				-webkit-transform: scale(0.5);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.8);
+				-webkit-transform: scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+				-webkit-transform: scale(1);
+                opacity: 0.0;
+            }
+        }
+        @keyframes warn1 {
+            0% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.2;
+            }
+            75% {
+                transform: scale(0.5);
+				-webkit-transform: scale(0.5);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(0.8);
+				-webkit-transform: scale(0.8);
+                opacity: 0.0;
+            }
+        }
+
+        @-webkit-keyframes warn {
+            0% {
+				transform: scale(0);
+                -webkit-transform: scale(0);
+                opacity: 0.0;
+            }
+            25% {
+				transform: scale(0);
+                -webkit-transform: scale(0);
+                opacity: 0.1;
+            }
+            50% {
+				transform: scale(0.1);
+                -webkit-transform: scale(0.1);
+                opacity: 0.2;
+            }
+            75% {
+				transform: scale(0.5);
+                -webkit-transform: scale(0.5);
+                opacity: 0.3;
+            }
+            100% {
+				transform: scale(1);
+                -webkit-transform: scale(1);
+                opacity: 0.0;
+            }
+        }
+
+        .animation-btnBox {
+            position: relative;
+        }
+        /* 保持大小不变的小圆圈  */
+        .dot {
+            position: absolute;
+            width: 90rpx;
+	          height: 90rpx;
+            left: 0px;
+            top: 0px;
+            z-index: 2;
+        }
+        /* 产生动画（向外扩散变大）的圆圈  */
+        .animation-circle1 {
+            position: absolute;
+            width: 90rpx;
+	          height: 90rpx;
+            left: -1px;
+            top: -1px;
+            border: 1px solid #ef486e;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            -webkit-animation: warn 1.5s linear;
+            -moz-animation: warn 1.5s linear;
+            animation: warn 1.5s linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            box-shadow: 2px 2px 1px 15px #ef486e;
+        }
+        .animation-circle2 {
+            position: absolute;
+            width: 90rpx;
+	          height: 90rpx;
+            left: -1px;
+            top: -1px;
+            border: 1px solid #ef486e;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            -webkit-animation: warn1 1.5s linear;
+            -moz-animation: warn1 1.5s linear;
+            animation: warn1 1.5s linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            box-shadow: 2px 2px 1px 15px #ef486e;
+        }
+/* 进度条 */
+
+.progress_flex {
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.progress_out {
+  width: 530rpx;
+  height: 8rpx;
+  background-color: rgba(242, 241, 241, 1);
+	box-shadow: inset 0rpx 3rpx 7rpx 0rpx 
+		rgba(163, 163, 163, 0.35);
+	border-radius: 5px;
+}
+.progress_in{
+  width: 0rpx;
+	height: 8rpx;
+	background-image: linear-gradient(-42deg, 
+		rgba(220, 42, 83, 0.96) 0%, 
+		rgba(239, 72, 110, 0.96) 100%), 
+	linear-gradient(
+		rgba(239, 72, 110, 1), 
+		rgba(239, 72, 110, 1));
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 5px;
+}
+.progress_num{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+	color: rgba(239, 72, 110, 1);
+}
+
+
+/* 扫描 */
+.flex_search{
+  width: 100%;
+  height: 450rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,1);
+  z-index: 999;
+}
+.flex_container{
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.radar {
+  background: -webkit-radial-gradient(center, rgba(239, 72, 110, 0.3) 0%, rgba(239, 72, 110, 0) 75%), -webkit-repeating-radial-gradient(rgba(239, 72, 110, 0) 5.8%, rgba(239, 72, 110, 0) 18%, #ef486e 18.6%, rgba(239, 72, 110, 0) 18.9%), -webkit-linear-gradient(90deg, rgba(239, 72, 110, 0) 49.5%, #ef486e 50%, #ef486e 50%, rgba(239, 72, 110, 0) 50.2%), -webkit-linear-gradient(0deg, rgba(239, 72, 110, 0) 49.5%, #ef486e 50%, #ef486e 50%, rgba(239, 72, 110, 0) 50.2%);
+  background: radial-gradient(center, rgba(239, 72, 110, 0.3) 0%, rgba(239, 72, 110, 0) 75%), repeating-radial-gradient(rgba(239, 72, 110, 0) 5.8%, rgba(239, 72, 110, 0) 18%, #ef486e 18.6%, rgba(239, 72, 110, 0) 18.9%), linear-gradient(90deg, rgba(239, 72, 110, 0) 49.5%, #ef486e 50%, #ef486e 50%, rgba(239, 72, 110, 0) 50.2%), linear-gradient(0deg, rgba(239, 72, 110, 0) 49.5%, #ef486e 50%, #ef486e 50%, rgba(239, 72, 110, 0) 50.2%);
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  border: 1px solid #ef486e;
+  position: relative;
+  overflow: hidden;
+}
+.radar:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: blips 5s infinite;
+  animation-timing-function: linear;
+  animation-delay: 1.4s;
+}
+.radar:after {
+  content: ' ';
+  display: block;
+  background: linear-gradient(44deg, rgba(239, 72, 110, 0) 50%, #ef486e 100%);
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: radar-beam 2s infinite;
+  animation-timing-function: linear;
+  transform-origin: bottom right;
+  border-radius: 100% 0 0 0;
+}
+
+@keyframes radar-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes blips {
+  14% {
+    background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%);
+  }
+  14.0002% {
+    background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%);
+  }
+  25% {
+    background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%);
+  }
+  26% {
+    background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%);
+    opacity: 1;
+  }
+  100% {
+    background: radial-gradient(2vmin circle at 75% 70%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 63% 72%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%), radial-gradient(2vmin circle at 56% 86%, #ffffff 10%, #ef486e 30%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+  }
+}
+.flex_text{
+  padding-top: 24rpx;
+  display: inline-block;
+  width: 300rpx;
+  text-align: center;
+  font-size: 32rpx;
+	color: rgba(239, 72, 110, 1);
+}

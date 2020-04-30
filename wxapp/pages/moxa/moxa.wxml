@@ -1,0 +1,23 @@
+<import src='/template/search-template/search-template.wxml' />
+
+<view class="moxa" wx:if="{{categories}}">
+  <view class='fixed-head'>
+    <template is="searchTemplate" class="program-listBox" />
+    <scroll-view class='scrollContainer' scroll-into-view="cat_{{selectedId}}" scroll-x scroll-with-animation>
+      <view class='moxa-item'>
+        <text id="cat_{{item.id}}" class="moxa-txt {{selectedId == item.id?'moxa-active':''}}" wx:for="{{categories}}" bindtap='changeGroup' data-id='{{item.id}}' wx:key='index'>{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 全部方案 -->
+  <view class='program-listBox'>
+    <view class='program-list'>
+      <view wx:for="{{categories['cat'+selectedId].children}}" wx:key="index" wx:for-item="category">
+        <navigator class='program-item' url="/pages/subPages/programsList/programsList?categoryName={{category.name}}&categoryId={{category.id}}" open-type="navigate">
+          <view class='program-item-name'>{{category.name}}</view>
+          <view class='program-item-info'>{{category.list}}</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

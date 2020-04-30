@@ -1,0 +1,124 @@
+<view class="massageDetail" wx:if="{{therapy_details}}">
+  <!-- 开始艾灸 -->
+  <view class="module-one">
+    <!-- 请选择 -->
+    <view class="choosebox">
+      <text class="choosebox-txt">需按摩以下穴位</text>
+      <view class="choosebox-info">
+        方案进度
+        <text class="choosebox-info-time"> {{therapy_day}}/{{solution_days}} </text>(天)
+      </view>
+    </view>
+    <!-- 穴位选择 -->
+    <view class="moxastartBox">
+      <scroll-view class="moxastartBox-container" scroll-x>
+        <view class="moxastartBox-list">
+          <view class="moxastartBox-itemPos" wx:for="{{therapy_details}}" wx:key="index">
+            <!-- bgOpacity是选中后变灰 -->
+            <view class="moxastartBox-itemBox">
+              <view class="moxastartBox-item" style="border:{{therapy_details.length==1?'none':''}}">
+                <view class="moxastartBox-itemLeft" data-index="{{index}}" bindtap="bindSetAcupoint">
+                  <view class="moxastartBox-item-imgtype">
+                    <image src="{{ossurl}}/acupoints_thumbnail/{{item.detail_acupoint}}/{{item.detail_acupoint}}.png" class="moxastartBox-item-moxaImg"></image>
+                    <image src="/static/image/moxastart/click.png" class="moxastartBox-item-moxaIcon" wx:if="{{item.finished}}"></image>
+                  </view>
+                  <view class="moxastartBox-item-info">
+                    <text class="moxastartBox-info-name">{{item.detail_acupoint}}({{item.detail_desc}}) </text>
+                    <view class='moxastartBox-info-type'>
+                      <text class='moxastartBox-type-one'>{{item.detail_temperature}}档</text>
+                      <text class='moxastartBox-type-two'>{{item.detail_duration}}</text>
+                    </view>
+                  </view>
+                </view>
+                <navigator class="moxastartBox-item-icon" url='../acupointDetails/acupointDetails?name={{item.detail_acupoint}}' open-type='navigate'>
+                  <image src="/static/image/public/xuewei.jpg"></image>
+                </navigator>
+              </view>
+            </view>
+            <view class='pointType-item-line' wx:if="{{currentIndex == index}}"></view>
+            <view class="moxastartBox-itemDisg" wx:if="{{currentIndex == index || item.finished}}"></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 按摩计时 -->
+  <view class="massageDetail-finishBox">
+    <text class="finishBox-left">按摩计时</text>
+    <view class="finishBox-right">
+      <text class="finishBox-right-text">今天调理是否完成</text>
+      <view class="customize-switch {{switch_disabled?'customize-switchAct':''}}" bindtap="bindTherapyFinishTap">
+        <view class="customize-switch-circle {{switch_disabled?'customize-switch-circleAct':''}}"></view>
+        <text class="customize-switch-text">{{switch_disabled?"已完成":"未完成"}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 按摩管理 -->
+  <view class="massageDetail-container" wx:if="{{currentIndex >= 0}}">
+    <view class="moxaManage-itemConType">
+      <view class="moxaManage-itemConLeft">
+        <view class="moxaManage-moxaType" bindtap="bindMassageAcupointTap" bindlongpress="bindLongTap">
+          <view class="moxastartBox-item-imgtype moxa-SpecialStyle">
+            <image src="{{ossurl}}/acupoints_thumbnail/{{therapy_details[currentIndex].detail_acupoint}}/{{therapy_details[currentIndex].detail_acupoint}}.png" class="moxastartBox-item-moxaImg"></image>
+            <image src="" class="moxastartBox-item-moxaIcon" wx:if="{{therapy_details[currentIndex].finished}}"></image>
+          </view>
+          <view class="moxastartBox-item-info">
+            <text class="moxastartBox-info-name">{{therapy_details[currentIndex].detail_acupoint}}({{therapy_details[currentIndex].detail_desc}})</text>
+            <view class='moxastartBox-info-type'>
+              <text class='moxastartBox-type-one'>{{therapy_details[currentIndex].detail_temperature || '-'}}档</text>
+              <text class='moxastartBox-type-two'>{{therapy_details[currentIndex].detail_duration}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <button bindtap="bindSwitchButtonTap" data-value="true" class="moxaManage-itemConRight" wx:if="{{started==false}}">开始</button>
+      <view class="animation-btnBox" bindtap="bindSwitchButtonTap" data-value="false" wx:else>
+        <button class="moxaManage-itemConRight animation-dot">结束</button>
+        <view class="animation-circle1"></view>
+        <view class="animation-circle2"></view>
+      </view>
+    </view>
+    <!-- 进度条 -->
+    <view class="progress_flex">
+      <view class="progress_out">
+        <view class="progress_in" style="width:{{progress}}%"></view>
+      </view>
+      <text class="progress_num">{{progress}}%</text>
+    </view>
+    <!-- 艾灸时间温度 -->
+    <view class="moxaStart-kindsEvent-box">
+      <view class="moxaStart-kindsEvent-container">
+        <view class="kindsEvent-info">
+          <text class="kindsEvent-info-time">{{runningTime}}分钟</text>
+          <text class="kindsEvent-info-txt">已按摩时间</text>
+        </view>
+        <view class="kindsEvent-info">
+          <text class="kindsEvent-info-time">{{therapy_details[currentIndex].detail_temperature}}档</text>
+          <text class="kindsEvent-info-txt">应调节按摩档位</text>
+        </view>
+      </view>
+    </view>
+    <!-- </view> -->
+  </view>
+
+  <!-- 注意事项 -->
+  <view class='moxa-start-note'>
+    <view class="moxa-start-container" style="margin-top:{{currentIndex < 0?'0':'100'}}rpx">
+      <view class='moxa-start-note-title'>使用说明</view>
+      <view class='moxa-start-note-txt'>
+        <text wx:for="{{noticeItems}}" wx:key="index">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 分享提示 -->
+  <view class='moxa-startBox' wx:if="{{showShare}}">
+    <view class='moxa-startBox-share'>
+      <view class='moxa-startBox-shareContent'>
+        <image src='/static/image/public/close.png' class='shareContent-img' bindtap='bindCloseShareTap'></image>
+        <text class='shareContent-title'>快分享给好朋友获取贝壳吧!</text>
+        <text class='shareContent-txt'>(贝壳可以兑换艾饼和灸头哦)</text>
+        <button class='shareContent-btn' bindtap='bindShareTap'>分享</button>
+      </view>
+    </view>
+  </view>
+</view>

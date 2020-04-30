@@ -1,0 +1,66 @@
+<view class='orderMessage' wx:if="{{records}}">
+  <!-- 订单信息 -->
+  <view class='orderMessage-details'>
+    <view class='orderMessage-details-item' wx:for="{{records}}" wx:key="index">
+      <!-- 订单时间 -->
+      <view class='orderMessage-details-time'>
+        <text class='orderMessage-timeA'>订单编号：{{item.order_id}}</text>
+        <text class='orderMessage-timeB'>{{item.order_state_text}}</text>
+      </view>
+      <!-- 订单商品 -->
+      <navigator class='orderMessage-details-pro' open-type="navigate" url="../commodityDetails/commodityDetails?id={{item.sku_id}}" >
+        <view class='orderMessage-proLeft'>
+          <image src='' class='orderMessage-proLeftImg' style="background-image: url({{item.sku_icon}});"></image>
+        </view>
+        <view class='orderMessage-proRight'>
+          <text class='orderMessage-proRight-name'>{{item.sku_name}}</text>
+          <view class='orderMessage-proRight-info'>
+            <text class='orderMessage-proRight-color'>规格：{{item.order_model}}</text>
+            <text class='orderMessage-proRight-count'>数量：{{item.order_qty}}</text>
+          </view>
+          <text class='orderMessage-proRight-num'>实际支付：{{item.order_sum}}贝壳</text>
+        </view>
+      </navigator>
+      <!-- 订单物流 -->
+      <view class='orderMessage-details-Logistics'>
+        <view class='orderMessage-Logistics-numbering'>订单时间：{{item.create_date}}</view>
+        <view class='orderMessage-Logistics-btn' bindtap='bindLogisticsTap' data-logistics="{{ {id: item.order_id, code: item.logistics_id, company: item.logistics_company} }}" wx:if="{{item.order_state > 1 && item.logistics_id}}">查看物流</view>
+      </view>
+
+      <!-- 物流信息 -->
+      <view class='LogisticsBox' wx:if="{{logisticsData[item.order_id] && logisticsData[item.order_id].display}}">
+        <view class='LogisticsBox-type'>
+          <text class='LogisticsBox-type-name'>{{item.logistics_company ? item.logistics_company : "快递单号"}}</text>
+          <text class='LogisticsBox-type-numbering'>{{item.logistics_id}}</text>
+        </view>
+        <!-- 物流状态 -->
+        <view class='LogisticsBox-state' wx:if="{{logisticsData[item.order_id].success}}">
+          <view class='LogisticsBox-stateItem' wx:for="{{logisticsData[item.order_id].records}}" wx:key="index">
+            <view class="LogisticsBox-stateItem-dot {{index == 0?'LogisticsBox-stateItem-dotActive':''}}"></view>
+            <view class='LogisticsBox-stateItem-message'>
+              <view class='LogisticsBox-message-time'>{{item.time}}</view>
+              <view class='LogisticsBox-message-txt'>{{item.content}}</view>
+            </view>
+          </view>
+        </view>
+
+        <view class='LogisticsBox-state' wx:else>
+          <view class='LogisticsBox-stateItem' >
+            <view class="LogisticsBox-stateItem-dot LogisticsBox-stateItem-dotActive"></view>
+            <view class='LogisticsBox-stateItem-message'>
+              <view class='LogisticsBox-message-txt'>{{logisticsData[item.order_id].message}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+   <view class="down_prompt" wx:if="{{size > 0 && size == records.length}}">
+      <text class="down_prompt_txt">我是有底线的</text>
+    </view>
+  </view>
+
+  <view class='commonNullContainer' wx:if="{{records.length == 0}}">
+    <image src='/static/image/public/dingdang.png' class='commonNullContainer-img'></image>
+    <text class='commonNullContainer-txt'>您还没有下过订单哦</text>
+  </view>
+</view>

@@ -1,0 +1,75 @@
+<view class="programs-details" wx:if="{{solution_name}}">
+  <!-- 方案列表 -->
+  <view class="programs-detailsList">
+    <view class='programs-detailsItem'>
+      <view class='detailsItem-infoUp'>
+        <view class='detailsItem-infoUpBox'>
+          <view class='detailsItem-infoUp-name'>{{solution_name}}</view>
+          <view class='details-infoUprateBox'>
+            <text class='details-infoUprateBox-txt'>方案评分</text>
+            <view class='details-infoUprateIconBox'>
+              <image src='/static/image/programList/xin.png' class='details-infoUprateBox-icon' wx:for="{{solution_score}}" wx:key="index"></image>
+            </view>
+          </view>
+        </view>
+        <text class='detailsItem-infoUp-content'>{{disease_synopsis}}</text>
+      </view>
+      <view class='detailsItem-infoDown'>
+        <text class='detailsItem-infoDown-tit'>【症状】</text>
+        <text class='detailsItem-infoDown-txt'>{{disease_symptom}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 疗程天数 -->
+  <view class='programs-details-timeType'>
+    <view class='timeType-title'>疗程数：{{solution_days}}天</view>
+    <scroll-view class='scrollContainer' scroll-into-view="timeType_{{currentIndex}}" scroll-x scroll-with-animation>
+      <view class='timeType-list'>
+        <view class='timeType-item' wx:for="{{solution_days}}" wx:key="index" data-index='{{index}}' bindtap='handleItemTap' id="timeType_{{index}}">
+          <text class="timeType-line {{index == 0?'timeType-line-none':''}}"></text>
+          <text class="timeType-text {{index == currentIndex?'timeType-text-active':''}}">{{index+1}}</text>
+          <text class="timeType-line {{index + 1 == solution_days?'timeType-line-none':''}}"></text>
+        </view>
+      </view>
+      <view class='programs-details-arrowBox'>
+        <view class='programs-details-arrowItem' wx:for="{{solution_days}}" wx:key="index" wx:for-index="idx">
+          <text class="programs-details-arroLine {{idx == 0?'programs-details-arroLineNone':''}}"></text>
+          <view class="programs-details-arrow  {{idx == currentIndex?'programs-details-arrowActive':'' }}">
+            <text class="programs-details-arrowDetail {{idx == currentIndex?'programs-details-arrowDetailActive':'' }}"></text>
+          </view>
+          <text class="programs-details-arroLine {{idx + 1 == solution_days?'programs-details-arroLineNone':''}}"></text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 穴位详情 -->
+  <view class='programs-details-acupointList'>
+    <block wx:for="{{solution_details}}" wx:key="index" wx:for-index="index" wx:for-item="acupoint" wx:if="{{acupoint.detail_day == currentIndex + 1}}">
+      <navigator class='programs-details-acupointItem' url='../acupointDetails/acupointDetails?name={{acupoint.detail_acupoint}}&detail_type={{acupoint.detail_type}}' open-type='navigate' hover-class='none' wx:if="{{solution_type < 2}}">
+        <view class='programs-details-acupointItemLeft'>
+          <image class='acupointItem-image' src='{{ossurl}}/acupoints_thumbnail/{{acupoint.detail_acupoint}}/{{acupoint.detail_acupoint}}.png'></image>
+          <view class='acupointItem-content'>
+            <text class='acupointItem-content-name'>{{acupoint.detail_acupoint}}{{acupoint.detail_desc ? " (" + acupoint.detail_desc + ")":""}}</text>
+            <view class='acupointItem-content-info'>
+              <text class='acupointItem-content-tem'>{{acupoint.detail_temperature}}℃</text>
+              <text class='acupointItem-content-minute'>{{acupoint.detail_duration}}min</text>
+            </view>
+          </view>
+        </view>
+        <image src='/static/image/public/xuewei.jpg' class='acupointItem-icon'></image>
+      </navigator>
+      <view class='programs-details-acupointItem' wx:else>
+        <view class='programs-details-acupointItemLeft'>
+          <view class='acupointItem-content'>
+            <text class='acupointItem-content-name'>{{acupoint.detail_acupoint}}{{acupoint.detail_desc ? " (" + acupoint.detail_desc + ")":""}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view style='height:120rpx;'></view>
+  <view class='programs-details-btnBox'>
+    <button class='programs-details-btn' hover-class='programs-details-btnActive' bindtap='bindAddTherapy'>{{therapyId ? "查看我的方案":"添加到我的方案"}}</button>
+    <button class='programs-details-btn' hover-class='programs-details-btnActive' bindtap='bindStartTherapy'>开始{{solution_type==0 ? "艾疗" : solution_type==1 ? "按摩" : "食疗" }}</button>
+  </view>
+</view>

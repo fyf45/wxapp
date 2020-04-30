@@ -1,0 +1,23 @@
+<view class="historyConvert" wx:if="{{records}}">
+  <!-- 兑换记录 -->
+  <view class='historyConvert-list'>
+    <view class='historyConvert-item' wx:for="{{records}}" wx:key="index">
+      <text class='historyConvert-item-leftText'>{{source[item.reference_type]}}</text>
+      <view class='historyConvert-item-rightBox' wx:if="{{item.balance_amount > 0}}">
+        <image src='/static/image/person/beike.png' class='historyConvert-item-rightImg'></image>
+        <text class='historyConvert-item-rightText'>+{{item.balance_amount}}</text>
+      </view>
+      <view class='historyConvert-item-rightBox-minus' wx:else>
+        <image src='/static/image/person/beike.png' class='historyConvert-item-rightImg'></image>
+        <text class='historyConvert-item-rightText'>{{item.balance_amount}}</text>
+      </view>
+    </view>
+    <view class="down_prompt" wx:if="{{size > 0 && size == records.length}}">
+      <text class="down_prompt_txt">我是有底线的</text>
+    </view>
+  </view>
+  <view class='commonNullContainer' wx:if="{{records.length == 0}}">
+    <image src='/static/image/public/beike.png' class='commonNullContainer-img'></image>
+    <text class='commonNullContainer-txt'>您还没有获得贝壳奖励奥</text>
+  </view>
+</view>

@@ -1,0 +1,219 @@
+.dietRecords {
+  width: 100%;
+  min-height: 100%;
+  background: #fafafa;
+}
+
+/* 开始按摩模块1 */
+
+.module-one {
+  width: 100%;
+  height: 260rpx;
+  background-color: #ef486e;
+  position: relative;
+}
+
+.module-one::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+/* 按摩进度 */
+
+.choosebox {
+  padding: 60rpx 24rpx 0;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.choosebox-txt {
+  padding-top: 24rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.choosebox-info {
+  width: 270rpx;
+  height: 51rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 51rpx;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.choosebox-info-time {
+  color: rgba(0, 0, 0, 1);
+  font-weight: bold;
+}
+
+/* 穴位选择 */
+
+.bgOpacity {
+  opacity: 0.5;
+}
+
+.dietRecordsBox {
+  width: 700rpx;
+  height: 209rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #f2f2f2;
+  border-radius: 5px;
+  position: absolute;
+  top: 174rpx;
+  left: 50%;
+  margin-left: -350rpx;
+  padding: 0 70rpx;
+}
+
+.finishCon {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.finishCon-left {
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.finishCon-a {
+  font-size: 32rpx;
+  color: rgba(53, 53, 53, 1);
+  padding-bottom: 15rpx;
+}
+
+.finishCon-b {
+  font-size: 26rpx;
+  color: rgba(154, 154, 154, 1);
+}
+
+.finishCon-btn {
+  width: 105rpx;
+  height: 105rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 104rpx;
+  padding: 0;
+  margin: 0;
+  background: rgba(239, 72, 110, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+}
+
+.finishCon-btn::after {
+  border: none;
+}
+
+.finishCon-btnActive {
+  background: rgba(239, 72, 110, 0.5);
+}
+
+/* 配方和功效 */
+
+.dietRecords-container {
+  width: 708rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #f2f2f2;
+  border-radius: 5px;
+  margin: 145rpx auto 0;
+  padding: 47rpx 52rpx;
+}
+
+.dietRecords-title {
+  font-size: 36rpx;
+  color: rgba(82, 82, 82, 1);
+}
+
+.dietRecords-ways {
+  margin-top: 54rpx;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.ways-type  text{
+  font-size: 32rpx;
+  color: rgba(53, 53, 53, 1);
+  padding-left: 15rpx;
+}
+.ways-type::before{
+  display: inline-block;
+  width: 6rpx;
+	height: 25rpx;
+  content: "";
+	background-color: rgba(239, 72, 110, 1);
+}
+.ways-con{
+  padding-left: 21rpx;
+  padding-top: 20rpx;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.ways-txt{
+  font-size: 26rpx;
+	line-height: 42.1rpx;
+	color: rgba(82, 82, 82, 1);
+}
+
+
+/* 分享提示 */
+.moxa-startBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5)
+}
+.moxa-startBox-share{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moxa-startBox-shareContent{
+  position: relative;
+  width: 534rpx;
+	background-color: #ffffff;
+	border-radius: 5px;
+}
+.shareContent-img{
+  position: absolute;
+  width: 32rpx;
+	height: 32rpx;
+  top: 20rpx;
+  right: 20rpx;
+  border-radius: 50%;
+}
+.shareContent-title{
+  display: block;
+  font-size: 34rpx;
+	color: #726e6e;
+  padding: 83rpx 0 24rpx;
+  text-align: center;
+}
+.shareContent-txt{
+  display: block;
+  font-size: 32rpx;
+	color: #b7b7b7;
+  text-align: center;
+  padding-bottom: 53rpx;
+}
+.shareContent-btn{
+  width: 80%;
+  height: 72rpx;
+	background-color: #ef486e;
+	border-radius: 10rpx;
+  line-height: 72rpx;
+  color: #ffffff;
+  font-size: 34rpx;
+  margin-bottom: 53rpx;
+}
+

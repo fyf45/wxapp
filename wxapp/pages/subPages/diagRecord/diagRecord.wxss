@@ -1,0 +1,149 @@
+.diagRecord {
+  width: 100%;
+  min-height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+
+.diagRecord-head {
+  width: 100%;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-bottom: 40rpx;
+  align-items: center;
+}
+
+.diagRecord-head-tit {
+  font-size: 32rpx;
+  color: rgba(239, 72, 110, 1);
+  padding-left: 8rpx;
+}
+
+.diagRecord-head-btn {
+  width: 160rpx;
+  background-color: rgba(239, 72, 110, 1);
+  border-radius: 25rpx;
+  margin: 0;
+  padding: 0;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+/* 辨证记录 */
+
+.diagRecord-container {
+  width: 702rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx rgba(225, 224, 224, 1);
+  border-radius: 5px;
+  padding: 40rpx 0 40rpx 40rpx;
+}
+
+.diagRecord-item {
+}
+
+.diagRecord-item-year {
+  position: relative;
+  font-size: 32rpx;
+  color: rgba(38, 38, 40, 0.8);
+}
+
+.diagRecord-item:not(:first-child)>.diagRecord-item-year {
+  padding-top: 108rpx;
+}
+
+.diagRecord-item-year::after {
+  content: '';
+  position: absolute;
+  height: 210%;
+  width: 2rpx;
+  background: #d8d8d8;
+  left: 19.85%;
+  top: -19%;
+}
+
+.diagRecord-item-month {
+  display: -webkit-flex;
+  align-items: center;
+  position: relative;
+  padding-top: 50rpx;
+}
+
+.diagRecord-item-date, .diagRecord-item-diag {
+  font-size: 28rpx;
+  color: rgba(144, 144, 144, 0.8);
+  width: 140rpx;
+}
+
+.diagRecord-item-diagBox {
+  min-width: 222rpx;
+  border-radius: 50rpx;
+  border: solid 1rpx rgba(83, 83, 83, 0.1);
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 86rpx;
+  line-height:  50rpx;
+  padding-bottom: 4rpx;
+}
+
+.diagRecord-item-diagIcon {
+  width: 9rpx;
+  height: 17rpx;
+  margin-left: 18rpx;
+}
+
+.diagRecord-item-month::after {
+  content: '';
+  position: absolute;
+  left: 20.10%;
+  top: 72%;
+  transform: translate(-50%, 0);
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+  z-index: 999;
+}
+
+.diagRecord-item-month::before {
+  content: '';
+  position: absolute;
+  left: 19.85%;
+  top: 73%;
+  width: 2rpx;
+  height: 100%;
+  background: #d8d8d8;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.diagRecord-item-month:last-child::before {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.monthActive>.diagRecord-item-date {
+  color: rgba(239, 72, 110, 0.8);
+}
+
+.monthActive::after {
+  background: #ef486e;
+}
+
+.monthActive>.diagRecord-box>.diagRecord-item-diagBox {
+  border: 1px solid rgba(239, 72, 110, 0.8);
+}
+
+.monthActive>.diagRecord-box>.diagRecord-item-diagBox>.diagRecord-item-diag {
+  color: rgba(239, 72, 110, 0.8);
+}
+
+.diagRecord-item:first-child .diagRecord-item-year::after {
+  width: 0 !important;
+  height: 0 !important;
+}

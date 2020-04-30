@@ -1,0 +1,23 @@
+<view class="contact" wx:if="{{html}}">
+  <view class="contact-info">
+    <navigator class="contact-suggest" open-type='navigate' url='../suggestion/suggestion' hover-class="none">
+      <image class="contact-suggest-icon" src="/static/image/contact/yijianfankui.png"></image>意见反馈
+    </navigator>
+    <button open-type='contact' session-from='' class="contact-customer">
+      <image class="contact-customer-icon" src="/static/image/contact/kefu.png"></image>联系客服
+    </button>
+  </view>
+  <official-account></official-account>
+  <view class="contact-title">常见问题</view>
+  <view class="contact-list">
+    <view class="contact-item" wx:for="{{common_problem}}" wx:key="index">
+      <view class="contact-item-question" data-index="{{index}}" bindtap="binddownChange">
+        <text class="{{item.isChecked && currentIndex == index ?'contact-item-txtActive':'contact-item-txt'}}">{{item.question}}</text>
+        <image class="contact-item-iconDown {{item.isChecked && currentIndex == index?'contact-item-icon':''}}" src="/static/image/public/jinru.png"></image>
+      </view>
+      <view class="contact-item-answer" wx:if="{{item.isChecked && currentIndex == index}}">
+        <text class="contact-answer-txt" wx:for="{{item.answer}}" wx:key="index" wx:for-item="answer_txt">{{answer_txt}}</text>
+      </view>
+    </view>
+  </view>
+</view>

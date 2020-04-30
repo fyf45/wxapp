@@ -1,0 +1,54 @@
+<import src='/template/diagQuestion-template/diagQuestion-template.wxml' />
+<view class="diagQuestion" wx:if="phases">
+  <!-- 辨证流程线 -->
+  <view class="diagHead">
+    <text class="diagHead-tit">Hello！终于等到你，我的小仙女! 请回答下列问题，小贝壳会根据您的回答智能分析提供您的专属调理方案！</text>
+    <scroll-view class="diagHead-list" scroll-x enable-flex>
+      <view class="diagHead-container" wx:for="{{phases}}" wx:key="index" data-index="{{index}}" bindtap="bindTabSwitch">
+        <view class="diagHead-item">
+          <view class="diagHead-itemUp">
+            <view class="diagHead-itemBox">
+              <progress percent="{{item.percentage}}" class="diagHead-line" color="#ef486e" stroke-width="3" />
+            </view>
+            <view class="diagHead-itemCircle {{currentTab == index?'diagHead-itemCircleActive':''}} {{item.isFinished ?'diagHead-afterCircle':''}}"></view>
+          </view>
+          <view class="diagHead-itemDown">
+            <text class="diagHead-itemTxt {{currentTab == index?'diagHead-itemTxtActive':''}}">{{item.phaseName}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 辨证问题 -->
+  <scroll-view scroll-y="true" class="diagQuestion-container" scroll-top="{{scrollTop}}">
+    <!--  类型1 -->
+    <view class="diagQuestion-con" wx:for="{{phases}}" id="q_{{i}}_0" wx:for-item="phase" wx:for-index="i" wx:key="a" wx:if="{{i == currentTab}}">
+      <block wx:for="{{phase.elements}}" wx:for-index="j" wx:key="b" wx:for-item="element">
+        <view class="diagQuestion-con-list showed">
+          <view class="diagQuestion-con-item">
+            <view class="questionBox">
+              <text class="questionBox-quset">{{element.elementId}}、{{element.elementText}}</text>
+              <view class="questionBox-status" wx:if="{{element.isRequired}}">
+                <text class="questionBox-star">*</text>
+                <text class="questionBox-txt {{item.point?'questionBox-txtActive':''}}">（{{element.isMultiple ? "多选" : "必选"}}）</text>
+              </view>
+            </view>
+            <view class="answerBox">
+              <view wx:for="{{element.options}}" data-option="{{k}}" data-element="{{j}}" wx:for-index="k" wx:key="c" wx:for-item="option" class="answerBox-item {{option.optionText.length>8?'answerBox-itemOther':''}} {{option.isSelected?'answerBox-itemActive':''}}"
+                bindtap="bindOptionTap">{{option.optionText}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view style="height:120rpx"></view>
+  <!-- 问卷提交 -->
+  <view class="submitBox">
+    <view class="submitBox-container">
+      <button class="questSubmit" bindtap="bindSubmitTap" disabled="{{!canSubmit}}">提交并获取辩证结果</button>
+      <button class="nextPage" bindtap="bindNextPageTap" wx:if="{{isLastPage != 1}}">下一页</button>
+    </view>
+  </view>
+</view>

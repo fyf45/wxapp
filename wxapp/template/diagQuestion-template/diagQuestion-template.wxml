@@ -1,0 +1,21 @@
+<template name="diagQuestion">
+  <view class="diagQuestion-con-item">
+    <view class="questionBox">
+      <text class="questionBox-quset">{{id}}、{{describe}}</text>
+      <view class="questionBox-status" wx:if="{{status}}">
+        <text class="questionBox-star">*</text>
+        <text class="questionBox-txt">（必选）</text>
+      </view>
+    </view>
+    <view class="answerBox" wx:if="{{options.length>0}}">
+      <view 
+        wx:for="{{options}}" 
+        wx:key="index" 
+        bindtap="bindChecked" 
+        data-index="{{index}}" 
+        data-value="{{item}}" 
+        data-id="{{id}}" 
+        class="answerBox-item {{item.length>8?'answerBox-itemOther':''}}{{id==questData.currentId&&index==questData.currentIndex?'answerBox-itemActive':''}}">{{currentTab}}</view>
+    </view>
+  </view>
+</template>

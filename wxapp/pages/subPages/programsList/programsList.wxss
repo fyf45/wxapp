@@ -1,0 +1,15 @@
+@import '../../../template/detailsList-template/detailsList-template.wxss';
+.programs-list {
+  width: 100%;
+  min-height: 100%;
+  padding:24rpx;
+  background: #fafafa;
+}
+
+.programs-details-list{
+  width: 100%;
+  padding:0 24rpx 24rpx 24rpx; 
+  background-color: #ffffff;
+	box-shadow: -0.5rpx 3rpx 5rpx 0rpx #e1e0e0;
+	border-radius: 5px;
+}

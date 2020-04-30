@@ -1,0 +1,36 @@
+<view class='addressList' wx:if="{{records}}">
+  <view class='commonNullContainer' wx:if="{{records.length==0}}">
+    <image src='/static/image/addressList/wu.png' class='commonNullContainer-img'></image>
+    <text class='commonNullContainer-txt'>您当前暂无收货地址\n请尽快去添加!</text>
+  </view>
+  <view class='addressList-yesBox' wx:else>
+    <view class='addressList-yesBox-item' wx:for="{{records}}" wx:key="index" wx:for-item="addr">
+      <view class='addressList-yesBox-itemType' data-index="{{index}}" bindtap="bindAddressTap">
+        <view class='addressList-itemType-userInfo'>
+          <text class='addressList-userInfo-name'>{{addr.address_user}}</text>
+          <text class='addressList-userInfo-phone'>{{addr.address_mobile}}</text>
+        </view>
+        <view class='addressList-itemType-address'>
+          {{addr.address_province}} {{addr.address_city}} {{addr.address_county}} {{addr.address_detail}}
+        </view>
+      </view>
+      <view class='addressList-yesBox-itemEdit'>
+        <view class='addressList-itemEditLeft'>
+        <text wx:if="{{addr.address_default}}" class='addressList-itemEditLeft-txt'>默认</text>
+        <text wx:if="{{addr.address_label}}" class='addressList-itemEditLeft-txt'>{{addr.address_label}}</text>
+        </view>
+        <view class='addressList-itemEditRight'>
+          <view class='addressList-editGroup' bindtap='bindAddressEdit' data-id="{{addr.address_id}}" data-item="{{addr}}">
+            <image class='addressList-editImg' src='/static/image/addressList/edit.png'></image>
+            <text class='addressList-editTxt'>编辑</text>
+          </view>
+          <view class='addressList-editGroup' bindtap='bindAddressRemove' data-id="{{addr.address_id}}" data-index="{{index}}">
+            <image class='addressList-editImg' src='/static/image/public/delete_shouhuo.png'></image>
+            <text class='addressList-editTxt'>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="addressList-noBtn-addCommon {{records.length==0?'addressList-noBtn-add':'addressList-noBtn-addCommon'}}" hover-class='addressList-noBtn-addAcive' bindtap='bindAddressAdd'>添加收货地址</button>
+</view>

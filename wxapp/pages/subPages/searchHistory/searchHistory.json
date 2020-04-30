@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "search-component" : "/components/search-component/search-component"
+  }
+}

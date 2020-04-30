@@ -1,0 +1,48 @@
+@import '../../../template/detailsList-template/detailsList-template.wxss';
+
+.searchList {
+  width: 100%;
+  min-height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+.searchBox{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.search{
+  width: 610rpx;
+}
+.search-btn{
+  border-radius: 0;
+  background-color: none;
+  font-size: 30rpx;
+	color: #353535;
+  padding: 0;
+  margin: 0;
+}
+.search-btn::after{
+  border: none;
+}
+.search-btn-hover{
+  background: #f8f6f6;
+}
+/* 历史搜索 */
+
+.searchList-historyPub {
+  padding: 24rpx 0;
+}
+
+.searchList-keyword {
+  color: rgba(244, 3, 3, 1);
+}
+.details-null{
+  margin: 150rpx 0 0 0;
+  text-align: center;
+}
+.details-null-text{
+  font-size:30rpx;
+  color:rgba(53, 53, 53, .8);
+  line-height: 54rpx;
+}

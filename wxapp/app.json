@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/moxa/moxa",
+    "pages/person/person",
+    "pages/subPages/appraise/appraise",
+    "pages/subPages/massageDetail/massageDetail",
+    "pages/subPages/newMoxaStart/newMoxaStart",
+    "pages/subPages/contact/contact",
+    "pages/subPages/suggestion/suggestion",
+    "pages/subPages/diagQuestion/diagQuestion",
+    "pages/subPages/dietRecords/dietRecords",
+    "pages/subPages/crustaInfo/crustaInfo",
+    "pages/subPages/diseaseDetail/diseaseDetail",
+    "pages/subPages/diseaseResult/diseaseResult",
+    "pages/subPages/diagRecord/diagRecord",
+    "pages/subPages/about/about",
+    "pages/subPages/gotoGzh/gotoGzh",
+    "pages/subPages/personInfo/personInfo",
+    "pages/subPages/programsDetails/programsDetails",
+    "pages/subPages/programsType/programsType",
+    "pages/subPages/acupointDetails/acupointDetails",
+    "pages/subPages/userShare/userShare",
+    "pages/subPages/historyRecord/historyRecord",
+    "pages/subPages/orderMessage/orderMessage",
+    "pages/subPages/orderSubmit/orderSubmit",
+    "pages/subPages/addressList/addressList",
+    "pages/subPages/addressFill/addressFill",
+    "pages/subPages/programsList/programsList",
+    "pages/subPages/searchList/searchList",
+    "pages/subPages/searchHistory/searchHistory",
+    "pages/subPages/commodityDetails/commodityDetails",
+    "pages/subPages/convert/convert",
+    "pages/subPages/historyConvert/historyConvert"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "贝壳健康",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#353535",
+    "selectedColor": "#ef486e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "iconPath": "/static/icon/index.png",
+        "selectedIconPath": "/static/icon/index_HL.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "/static/icon/ailiao.png",
+        "selectedIconPath": "/static/icon/ailiao_HL.png",
+        "pagePath": "pages/moxa/moxa",
+        "text": "艾疗"
+      },
+      {
+        "iconPath": "/static/icon/my.png",
+        "selectedIconPath": "/static/icon/my_HL.png",
+        "pagePath": "pages/person/person",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将仅用于获取当前省市区信息"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

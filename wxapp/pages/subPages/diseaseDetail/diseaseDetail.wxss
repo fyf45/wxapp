@@ -1,0 +1,54 @@
+.diseaseDetail {
+  width: 100%;
+  min-height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+.diseaseDetail-container{
+  background-color: rgba(255, 255, 255, 1);
+	box-shadow: -0.5rpx 3rpx 29rpx 0rpx 
+		rgba(225, 224, 224, 1);
+    border-radius: 5px;
+  padding: 60rpx;
+}
+.diseaseDetail-container-titleOne{
+  width: 231rpx;
+	height: 53rpx;
+	background-color: rgba(239, 72, 110, .8);
+	border-radius: 12px;
+  font-size: 30rpx;
+  line-height: 53rpx;
+  text-align: center;
+	color: rgba(255, 255, 255, 1);
+}
+.diseaseDetail-container-content{
+  /* padding-top: 40rpx; */
+  display: flex;
+  flex-direction: column;
+}
+.diseaseDetail-container-txt{
+  font-size: 28rpx;
+	color: rgba(38, 38, 40, .7);
+  text-align: justify;
+  line-height: 50rpx;
+  text-indent: 58rpx;
+  padding-top:  40rpx;
+}
+.diseaseDetail-container-titleTwoBox{
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding-top: 40rpx;
+}
+.diseaseDetail-container-titleTwoLine{
+  width: 6rpx;
+	height: 28rpx;
+	background-color: rgba(239, 72, 110, 1);
+	border-radius: 2.5rpx;
+}
+.diseaseDetail-container-titleTwo{
+  padding-left: 13rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+	color: rgba(239, 72, 110, .8);
+} 

@@ -1,0 +1,6 @@
+<template name='searchTemplate'>
+  <navigator class='search' url='/pages/subPages/searchHistory/searchHistory'>
+    <image class='search-img' src='/static/image/public/search.png'></image>
+    <input placeholder='病症、症状...' class='search-int' value="{{searchKeyword}}" placeholder-class="place-holder" disabled='true'></input>
+  </navigator>
+</template>

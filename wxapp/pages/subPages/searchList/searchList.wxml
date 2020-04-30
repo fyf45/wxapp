@@ -1,0 +1,11 @@
+<import src='/template/detailsList-template/detailsList-template.wxml' />
+
+<view class='searchList' wx:if="{{records && searchKeyword}}">
+  <search-component keyword="{{searchKeyword}}" />
+  <view wx:if="{{size > 0}}">
+     <template is='detailsList'  wx:for="{{records}}" wx:key="index" data="{{...item}}" />
+  </view>
+  <view  class='details-null' wx:else>
+    <text class="details-null-text">未找到与"{{searchKeyword}}"相关的内容\n试试别的词吧</text>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+.acupointDetails{
+  width: 100%;
+  min-height: 100%;
+  background: #fafafa;
+  padding:24rpx;
+}
+.acupointDetails-parameter-title{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 34rpx;
+  color: #ef486e;
+  font-weight: bold;
+}
+.acupointDetails-parameter-titleLine{
+  height: 34rpx;
+  padding-right: 24rpx;
+  border-left: 5px solid #ef486e
+}
+
+.acupointDetails-info-container{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+  padding: 36rpx 38rpx 36rpx 22rpx;
+  margin-top: 24rpx;
+}
+.acupointDetails-common-container{
+  display: flex;
+  flex-direction: column;
+
+}
+.acupointDetails-des{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+}
+.acupointDetails-common-container:not(:first-child) {
+  padding-top: 20rpx;
+}
+.common-container-title{
+  font-size: 28rpx;
+  color: #000000;
+  padding-bottom: 20rpx;
+}
+.common-container-con{
+  font-size: 28rpx;
+  color: #909090;
+  padding-bottom: 10rpx;
+  padding-left: 16rpx;
+  text-align: justify;
+  line-height: 50rpx;
+}
+.acupointDetails-pub-title{
+  padding: 24rpx 0;
+  font-size: 34rpx;
+  color: #ef486e;
+  font-weight: bold;
+}
+.acupointDetails-videoBox,.acupointDetails-imgBox{
+  width: 100%;
+  /* height: 376rpx; */
+}
+.acupointDetails-video{
+  width: 700rpx;
+  height: 394rpx;
+}
+.acupointDetails-img{
+  display: block;
+  width: 100%;
+  height: 395rpx;
+}
+.acupointDetails-pub-txt{
+  width: 100%;
+}
+

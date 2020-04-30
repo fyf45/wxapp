@@ -1,0 +1,79 @@
+.searchHistory{
+  width: 100%;
+  height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+.searchBox{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.search{
+  width: 610rpx;
+}
+.search-btn{
+  border-radius: 0;
+  background-color: none;
+  font-size: 30rpx;
+	color: #353535;
+  padding: 0;
+  margin: 0;
+}
+.search-btn::after{
+  border: none;
+}
+.search-btn-hover{
+  background: #f8f6f6;
+}
+/* 历史搜索 */
+.searchList-historyPub{
+  padding: 24rpx 0; 
+}
+.searchList-historyPubUp{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.searchList-historyPubUp-txt,.searchList-historyPubUp-emptyBoxTxt{
+  font-size: 28rpx;
+	color: rgba(53, 53, 53, .8);
+}
+.searchList-historyPubUp-emptyBox{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.searchList-historyPubUp-emptyBoxImg{
+  width: 25rpx;
+	height: 24rpx;
+	/* background-color: #353535; */
+  margin-right: 10rpx;
+}
+.searchList-historyPubDown{
+  padding: 24rpx 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.searchList-historyPubDown-txt{
+  display: inline-block;
+  width: 120rpx;
+  padding: 5rpx 4rpx;
+  font-size: 28rpx;
+	color: #909090;
+  text-align: center;
+  border-radius: 10px;
+  border: 1rpx solid #E2E2E2;
+  margin:0 24rpx 24rpx 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.searchList-historyPubDown-txt:nth-child(5n){
+  margin-right: 0;
+}
+.history-null{
+  font-size: 24rpx;
+	color: #909090;
+}

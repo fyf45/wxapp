@@ -1,0 +1,6 @@
+<import src='/template/detailsList-template/detailsList-template.wxml' />
+<view class='programs-list' wx:if="{{records}}">
+  <view class='programs-details-list'>
+    <template is='detailsList' wx:for="{{records}}" wx:key="index" data="{{...item}}" />
+  </view>
+</view>

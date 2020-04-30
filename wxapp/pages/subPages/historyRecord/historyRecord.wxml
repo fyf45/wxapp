@@ -1,0 +1,68 @@
+<view class='historyRecord' wx:if="{{records}}">
+  <view class='historyRecord-operating'>
+    <view class='historyRecord-allRecord'>
+      <view class='historyRecord-allRecord-sContent' bindtap='bindDurationMenuTap'>
+        <view class='historyRecord-allRecord-sTxt'>{{dataDuration}}</view>
+        <image src='/static/image/public/down.png' class='historyRecord-allRecord-sImg' animation="{{animationData}}"></image>
+      </view>
+    </view>
+    <view wx:if="{{records.length>0&&actionStatus == 1}}" class='historyRecord-deleteRecord' bindtap='bindActionTap' data-deleteRecordTxt="{{deleteRecord.deleteRecordTxt}}">
+      <image src='/static/image/historyRecord/guanli.jpg' class='historyRecord-deleteRecord-sImg'></image>
+      <view class='historyRecord-deleteRecord-sTxt'>管理</view>
+    </view>
+    <view wx:elif="{{actionStatus == 2}}" class='historyRecord-deleteRecord' bindtap='bindActionTap' data-deleteRecordTxt="{{deleteRecord.deleteRecordTxt}}">
+      <image src='/static/image/public/delete_shouhuo.png' class='historyRecord-deleteRecord-sImg'></image>
+      <view class='historyRecord-deleteRecord-sTxt'>删除</view>
+    </view>
+
+  </view>
+  <view class='commonNullContainer' wx:if="{{records.length==0}}">
+    <image src='/static/image/public/aijiu.png' class='commonNullContainer-img'></image>
+    <text class='commonNullContainer-txt'>您目前还没有相关记录哦\n快去体验吧</text>
+  </view>
+  <!-- 记录列表 -->
+  <view class='historyRecord-container'>
+    <view class='historyRecord-container-list' wx:for="{{records}}" wx:key="index" bindtouchstart="resetSwiper">
+      <swiper previous-margin="550rpx" current="{{currentSwiper}}">
+        <swiper-item class="historyRecord-swiperItem1 historyRecord-container-item">
+          <image class='historyRecord-container-checked' id="checkbox_{{index}}" src="{{item.checked ? '/static/image/historyRecord/checkedIconImg.jpg' : '/static/image/historyRecord/checkIconImg.jpg'}}" wx:if="{{actionStatus == 2}}" bindtap='bindCheckboxClick'
+            data-index="{{index}}" data-record="{{item}}"></image>
+          <navigator class="historyRecord-container-box" wx:if="{{item.mox_solution}}" open-type='navigate' url='../programsDetails/programsDetails?id={{item.solution_id}}'>
+            <view class='historyRecord-container-dateType'>
+              <text class='historyRecord-dateType-date'>{{item.create_date.month+1}}/{{item.create_date.date}}</text>
+              <text class='historyRecord-dateType-time'>{{item.create_date.hours}}:{{item.create_date.minutes}}</text>
+            </view>
+            <view class='historyRecord-container-nameType {{actionStatus == 2?"historyRecord-container-nameType01":""}}'>
+              <text class='historyRecord-nameType-name'>{{item.mox_solution}} - {{item.mox_acupoint || "直接灸"}}</text>
+              <text class='historyRecord-nameType-time'>第{{item.therapy_day}}天(共{{item.solution_days}}天)</text>
+            </view>
+            <view class='historyRecord-container-timeType'>
+              <text class='historyRecord-timeType-time'>{{item.mox_duration || 1}}</text>
+              <text class='historyRecord-timeType-txt'>分钟</text>
+            </view>
+          </navigator>
+          <navigator class='historyRecord-container-box' wx:else open-type='navigate' url='../moxaStart/moxaStart'>
+            <view class='historyRecord-container-dateType'>
+              <text class='historyRecord-dateType-date'>{{item.create_date.month+1}}/{{item.create_date.date}}</text>
+              <text class='historyRecord-dateType-time'>{{item.create_date.hours}}:{{item.create_date.minutes}}</text>
+            </view>
+            <view class='historyRecord-container-nameType '>
+              <text class='historyRecord-nameType-name'>直接灸</text>
+              <text class='historyRecord-nameType-time'>-</text>
+            </view>
+            <view class='historyRecord-container-timeType'>
+              <text class='historyRecord-timeType-time'>{{item.mox_duration / 60 | 0}}:{{(item.mox_duration % 60) < 10 ? "0" + (item.mox_duration % 60) : (item.mox_duration % 60)}}</text>
+              <text class='historyRecord-timeType-txt'>分钟</text>
+            </view>
+          </navigator>
+        </swiper-item>
+        <swiper-item class="historyRecord-swiperItem2">
+          <button class="historyRecord-container-btn" bindtap="bindRemoveTap" data-index="{{index}}">删除</button>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="down_prompt" wx:if="{{size > 0 && size == records.length}}">
+      <text class="down_prompt_txt">我是有底线的</text>
+    </view>
+  </view>
+</view>

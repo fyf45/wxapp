@@ -1,0 +1,284 @@
+.programs-details {
+  width: 100%;
+  min-height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+
+/* 方案列表 */
+
+.programs-detailsList {
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.programs-detailsItem {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsItem-infoUp, .detailsItem-infoDown {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsItem-infoUpBox, .details-infoUprateBox {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailsItem-infoUp-name {
+  font-size: 38rpx;
+  color: #000000;
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.details-infoUprateBox-txt {
+  font-size: 28rpx;
+  color: #353535;
+}
+
+.details-infoUprateIconBox {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 24rpx;
+}
+
+.details-infoUprateBox-icon {
+  width: 26rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+.detailsItem-infoUp-content {
+  font-size: 28rpx;
+  padding-top: 22rpx;
+  text-align: justify;
+  line-height: 44rpx;
+  color: #4d4d4dc7;
+}
+
+.detailsItem-infoDown {
+  padding-top: 38rpx;
+}
+
+.detailsItem-infoDown-tit {
+  font-size: 32rpx;
+  color: #ef486e;
+}
+
+.detailsItem-infoDown-txt {
+  font-size: 28rpx;
+  padding-top: 22rpx;
+  text-align: justify;
+  line-height: 44rpx;
+  color: #4d4d4dc7;
+}
+
+/* 疗程天数 */
+
+.programs-details-timeType {
+  padding: 30rpx 40rpx 0rpx 40rpx;
+}
+
+.timeType-title {
+  font-size: 32rpx;
+  color: #ef486e;
+  padding-bottom: 30rpx;
+}
+
+.scrollContainer {
+  width: 100%;
+  margin-bottom: -1px;
+}
+
+.timeType-list,.timeType-item{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.timeType-line {
+  width: 38rpx;
+  height: 7rpx;
+  background-color: #eee;
+  box-shadow: 0rpx 1rpx 0rpx 0rpx #fff, inset 0rpx 1rpx 3rpx 0rpx #d6d6d6;
+}
+
+.timeType-line-none,.programs-details-arroLineNone {
+  display: none;
+}
+
+.timeType-text {
+  display: inline-block;
+  width: 56rpx;
+  height: 56rpx;
+  background-color: #efefef;
+  box-shadow: 0rpx 1rpx 0rpx 0rpx #fff, inset 0rpx 4rpx 9rpx 0rpx #cecece;
+  text-align: center;
+  line-height: 56rpx;
+  border-radius: 50%;
+  font-size: 38.82rpx;
+  color: #afadac;
+}
+
+.timeType-text-active {
+  width: 50rpx;
+  height: 50rpx;
+  background-image: linear-gradient(185deg, rgba(255, 255, 255, 0.96) 0%, rgba(254, 188, 208, 0.96) 0%, rgba(253, 121, 161, 0.96) 0%, rgba(238, 67, 105, 0.96) 100%),
+                      linear-gradient(#efefef, #efefef);
+  background-blend-mode: normal, normal;
+  box-shadow: 0rpx 1rpx 0rpx 0rpx #fff, inset 0rpx 4rpx 9rpx 0rpx #ff5d82;
+  color: #fff;
+  line-height: 50rpx;
+}
+
+.timeType-text-activeOne {
+  color: #ef486e;
+}
+
+/* 箭头指向 */
+
+.programs-details-arrowBox,.programs-details-arrowItem {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+
+
+.programs-details-arrow {
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 56rpx;
+  height: 56rpx;
+}
+.programs-details-arrowActive {
+  width: 50rpx;
+  height: 50rpx;
+}
+.programs-details-arrowDetail{
+  width: 0;
+  height: 0;
+  border-right: 15rpx solid transparent;
+  border-left: 15rpx solid transparent;
+  border-bottom: 20rpx solid rgba(0,0,0,0);
+}
+.programs-details-arrowDetailActive{
+  border-bottom: 20rpx solid #fff;
+
+}
+.programs-details-arroLine{
+  width: 38rpx;
+  height: 7rpx;
+}
+
+/* 穴位详情 */
+
+.programs-details-acupointList {
+  padding: 43rpx 43rpx 0rpx 24rpx;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+  border-top: 2rpx solid #fff;
+}
+
+.programs-details-acupointItem {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 48rpx;
+
+}
+
+.programs-details-acupointItemLeft {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.acupointItem-image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 5px;
+}
+
+.acupointItem-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24rpx;
+}
+
+.acupointItem-content-name {
+  font-size: 28rpx;
+  color: #000;
+}
+
+.acupointItem-content-info {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-top: 10rpx;
+}
+
+.acupointItem-content-tem {
+  padding-right: 20rpx;
+}
+
+.acupointItem-content-tem, .acupointItem-content-minute {
+  font-size: 27.08rpx;
+  color: #b2b2b2;
+}
+
+.acupointItem-icon {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/* 按钮 */
+
+.programs-details-btnBox {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.programs-details-btn {
+  height: 98rpx;
+  background-color: #ef486e;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 98rpx;
+  float: left;
+  width: 50%;
+  border-radius: 0;
+}
+
+.programs-details-btn:nth-child(1) {
+  border-right: 1rpx solid #fff;
+}
+
+.programs-details-btn::after {
+  border: none;
+  border-radius: 0;
+}
+.programs-details-btnActive {
+  background-color: #e43c62;
+}
+.programs-details-btn[disabled]{
+  color:#535c68!important;
+  background-color: #f7f7f7!important;
+  opacity: 1!important;
+}

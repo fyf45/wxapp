@@ -1,0 +1,29 @@
+ .program-item {
+  width: 340rpx;
+  padding:25rpx;
+  height:200rpx;
+	background-color: #ffffff;
+	border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 24rpx;
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx #e1e0e0;
+}
+ .program-item-name {
+  font-size: 38rpx;
+  color: #ef486e;
+  padding-bottom: 15rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+ .program-item-info{
+  font-size: 28rpx;
+  color: #413e3e;
+  line-height: 40rpx;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  /* text-align: justify; */
+}

@@ -1,0 +1,75 @@
+<view class="programs-type" wx:if="{{tabs[0].records}}">
+	<view class='program-typeNull' wx:if="{{tabs[0].size == 0}}">
+		<image src='/static/image/public/tianjiafangan.png' class='program-typeNull-img'></image>
+		<view class='program-typeNull-txtType'>
+			<view class='program-typeNull-txt'>您当前还没有添加过调理方案哦
+			</view>
+			<view class='program-typeNull-Next'>
+				<text class='program-typeNull-txt'>点击</text>
+				<navigator url='/pages/moxa/moxa' open-type='switchTab' hover-class='none' class='program-typeNull-txtAdd'>添加方案</navigator>
+				<text class='program-typeNull-txt'>去添加吧！</text>
+			</view>
+		</view>
+	</view>
+	<view wx:else>
+		<!-- 方案列表 添加方案 -->
+		<view class='prpgrams-type-head'>
+			<text class='prpgrams-type-headname'>方案列表</text>
+			<navigator class='prpgrams-type-headadd' open-type='switchTab' url='../../moxa/moxa' hover-class='none'>
+				<image class='prpgrams-type-headaddImg' src='/static/image/programType/add.png'></image>
+				<text>添加方案</text>
+			</navigator>
+		</view>
+		<!--方案列表 -->
+
+		<!--顶部导航栏-->
+		<view class="prpgrams-headtab">
+			<view wx:for="{{tabs}}" wx:key="unique" wx:for-index="currentIndex" wx:for-item="tab" class="tab-item {{currentTab==currentIndex ? 'tab-itemActive' : ''}}" data-current="{{currentIndex}}" bindtap="bindTabSwitched">{{tab.title}}</view>
+		</view>
+
+		<!--内容主体-->
+		<view class='prpgrams-type-list' wx:key="unique" wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="tabIndex" wx:if="{{currentTab == tabIndex}}">
+			<block wx:for="{{tab.records}}" wx:key="unique" wx:for-item="therapy">
+				<swiper previous-margin="550rpx" current="{{currentSwiper}}" class="{{therapy.therapy_state < 2?'programs-swiper':'programs-swiperEnd'}}" bindtouchstart="resetSwiper">
+					<swiper-item class="programs-swiper-itemOne">
+						<navigator wx:if="{{therapy.therapy_state < 2}}" class='prpgrams-type-item' open-type='navigate' url="{{therapy.solution_type == 0 ? '../newMoxaStart/newMoxaStart?therapy=' + therapy.therapy_id : therapy.solution_type == 1 ? '../massageDetail/massageDetail?therapy=' + therapy.therapy_id : '../dietRecords/dietRecords?therapy=' + therapy.therapy_id}}">
+							<view class='prpgrams-item-up'>
+								<view class='prpgrams-up-one'>
+									<view class='programs-one-name'>{{therapy.solution_name}}</view>
+									<view class='programs-one-num'>疗程：{{therapy.therapy_day}}次/{{therapy.solution_days}}次
+										<text class='programs-one-state program-start' wx:if="{{therapy.therapy_state==0}}">(未开始)</text>
+										<text class='programs-one-state program-run' wx:elif="{{therapy.therapy_state==1}}">(进行中)</text>
+									</view>
+								</view>
+								<view class='prpgrams-up-two'>{{therapy.disease_synopsis}}</view>
+							</view>
+							<view class='prpgrams-item-down'>
+								<image class='prpgrams-item-downImg' src='/static/image/programType/xuewei.png'></image>
+								<text class='programs-down-txt'>{{therapy.acupoints}}</text>
+							</view>
+						</navigator>
+						<view class='prpgrams-type-item' wx:else>
+							<view class='prpgrams-up-one'>
+								<view class='programs-one-name'>{{therapy.solution_name}}</view>
+								<view class='programs-one-num'>疗程：{{therapy.therapy_day}}次/{{therapy.solution_days}}次
+									<text class='programs-one-state'>(已完成)</text>
+								</view>
+							</view>
+							<view class='prpgrams-up-two'>{{therapy.disease_synopsis}}</view>
+						</view>
+					</swiper-item>
+					<swiper-item class="programs-swiper-itemTwo">
+						<button class="prpgrams-btn" bindtap="bindRemoveButtonTap" data-therapy-id="{{therapy.therapy_id}}">删除</button>
+					</swiper-item>
+				</swiper>
+			</block>
+			<view class="down_prompt" wx:if="{{tab.size > pageSize && tab.size == tab.records.length}}">
+				<text class="down_prompt_txt">我是有底线的</text>
+			</view>
+			<view class="down_prompt" wx:elif="{{tab.size == 0}}">
+				<text class="down_prompt_txt">暂无数据</text>
+			</view>
+		</view>
+
+	</view>
+</view>

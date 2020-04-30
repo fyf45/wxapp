@@ -1,0 +1,42 @@
+<view class="acupointDetails" wx:if="{{acupoint_name}}">
+	<!-- 艾灸参数 -->
+	<view class='acupointDetails-parameter-title'>
+		<text class='acupointDetails-parameter-titleLine'></text>{{acupoint}}
+	</view>
+	<view class='acupointDetails-info-container' wx:if="{{detail_type != 'false'}}">
+		<view class='acupointDetails-common-container'>
+			<text class='common-container-title'>【艾灸参数】</text>
+			<text class='common-container-con'>{{mox_parameters}}</text>
+		</view>
+		<view class='acupointDetails-common-container'>
+			<text class='common-container-title'>【主治病症】</text>
+			<text class='common-container-con'>{{acupoint_disease}}</text>
+		</view>
+		<view class='acupointDetails-common-container'>
+			<text class='common-container-title'>【定位】</text>
+			<text class='common-container-con'>{{acupoint_position}}</text>
+		</view>
+		<view class='acupointDetails-common-container'>
+			<text class='common-container-title'>【取穴】</text>
+			<text class='common-container-con'>{{acupoint_locate}}</text>
+		</view>
+	</view>
+	<view wx:else>
+		<view class='acupointDetails-des'>
+			<text class='common-container-title'>【穴位简介】</text>
+			<text class='common-container-con'>{{acupoint_position}}</text>
+		</view>
+	</view>
+	<!-- 视频 -->
+	<view wx:if="{{detail_type != 'false'}}">
+		<view class='acupointDetails-pub-title'>怎么查找穴位？</view>
+		<view class='acupointDetails-videoBox'>
+			<video title="{{acupoint_name}}" src="{{videoUrl}}" controls="true" class='acupointDetails-video' poster="{{picUrl}}"></video>
+		</view>
+	</view>
+	<!-- 图片 -->
+	<view class='acupointDetails-pub-title'>穴位图示</view>
+	<view class='acupointDetails-imgBox'>
+		<image class='acupointDetails-img' src='{{picUrl}}' data-src='{{picUrl}}' bindtap="previewImage"></image>
+	</view>
+</view>

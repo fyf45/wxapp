@@ -1,0 +1,79 @@
+<view class='person'>
+  <!-- 头部信息 -->
+  <view class='person-head'>
+    <navigator class='person-head-check' wx:if="{{userInfo.name}}" open-type='navigate' url='../subPages/personInfo/personInfo' hover-class='none'>
+      <image class='person-head-checkimg' src='/static/image/person/edit.png'></image>
+    </navigator>
+    <view class='person-userBox'>
+      <view class='person-user'>
+        <view class='person-user-header'>
+          <image class='person-user-headerimg' src='' style="background-image: url({{userInfo.avatar}})" data-src='{{userInfo.avatar}}' bindtap="previewImage"></image>
+          <text class="person-user-headerVip">LV{{userInfo.level}}</text>
+        </view>
+        <!-- 用户名 贝壳币 -->
+        <view class='person-head-infoBox'>
+          <view class='person-head-infoname' wx:if="{{userInfo.name}}">{{userInfo.name}}</view>
+          <button class="person-head-clickbtn" wx:else open-type="getUserInfo" bindgetuserinfo="bindUserInfo">点击登陆账户</button>
+          <navigator class='person-head-shell' url="/pages/subPages/historyConvert/historyConvert" hover-class='none'>
+            <image class='person-head-shelltxtIcon' src='/static/image/person/beike.png'></image>
+            <text class='person-head-shelltxt'>贝壳</text>
+            <text class='person-head-shellnum'>{{userInfo.cowry || 0}}</text>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 用户列表 -->
+  <view class='person-list'>
+    <navigator class='person-item' wx:for="{{menus}}" wx:for-item="menu" url="{{menu.url}}" wx:key="index" open-type='navigate' hover-class='none'>
+      <view class='person-item-cont'>{{menu.name}}</view>
+      <image class='person-item-img' src='/static/image/public/jinru.png'></image> 
+    </navigator>
+  </view>
+
+  <view class='indexFixedBox' wx:if="{{showRegisterDialog}}">
+    <view class='indexFixed'>
+      <view class='indexFixed-type'>
+        <image src='/static/image/public/close_wanshanxinxi.png' class='indexFixed-type-close' bindtap='closeRegisterDialog'></image>
+        <view class='indexFixed-type-title'>
+          <text class='indexFixed-type-line'></text> 完善信息</view>
+        <view class='indexFixed-type-list'>
+          <picker mode="selector" bindchange="bindGenderChange" value="{{gender}}" range="{{genderData}}">
+            <label class='indexFixed-type-item'>
+              <image class='indexFixed-type-itemImg' src='/static/image/loginMessage/sex.png'></image>
+              <text class="indexFixed-type-itemTxt">性别</text>
+              <input value='{{genderData[gender]}}' class='indexFixed-type-itemInt' placeholder-class="place-holder-fixed" disabled/>
+              <image class='indexFixed-type-itemIcon' src='/static/image/public/jinru.png'></image>
+            </label>
+          </picker>
+          <picker mode="region" value='{{region}}' bindchange="bindRegionChange">
+            <label class='indexFixed-type-item' bindtap="openLocation">
+              <image class='indexFixed-type-itemImg' src='/static/image/loginMessage/place.png'></image>
+              <text class="indexFixed-type-itemTxt">地区</text>
+              <input value='{{region[0] ? region : ""}}' class='indexFixed-type-itemInt' placeholder-class="place-holder-fixed" disabled/>
+              <image class='indexFixed-type-itemIcon' src='/static/image/public/jinru.png'></image>
+            </label>
+          </picker>
+          <picker mode="date" fields="day" value="{{birthday}}" start="{{birthday_start}}" end="{{birthday_end}}" bindchange="bindBirthdayChange">
+            <label class='indexFixed-type-item'>
+              <image class='indexFixed-type-itemImg' src='/static/image/loginMessage/birthday.png'></image>
+              <text class="indexFixed-type-itemTxt">出生年月</text>
+              <input value='{{birthday}}' class='indexFixed-type-itemInt' placeholder-class="place-holder-fixed" disabled/>
+              <image class='indexFixed-type-itemIcon' src='/static/image/public/jinru.png'></image>
+            </label>
+          </picker>
+          <picker mode="selector" bindchange="bindOccupationChange" range="{{occupations}}">
+            <label class='indexFixed-type-item'>
+              <image class='indexFixed-type-itemImg' src='/static/image/loginMessage/work.png'></image>
+              <text class="indexFixed-type-itemTxt">职业</text>
+              <input value='{{occupations[occupation]}}' class='indexFixed-type-itemInt' placeholder-class="place-holder-fixed" disabled/>
+              <image class='indexFixed-type-itemIcon' src='/static/image/public/jinru.png'></image>
+            </label>
+          </picker>
+          <button class="indexFixed-btn indexFixed-btn-active" bindtap="bindRegister" wx:if="{{ gender && region && birthday && occupation }}">完成</button>
+          <button class="indexFixed-btn" wx:else>完成</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="diagRecord" wx:if="{{timeline}}">
+	<!-- 痛经辨证头部信息 -->
+	<view class="diagRecord-head">
+		<text class="diagRecord-head-tit">我的痛经辩证记录</text>
+		<navigator class="diagRecord-head-btn" open-type='navigateTo' url='../diagQuestion/diagQuestion'>我要辨证</navigator>
+	</view>
+	<!-- 痛经辨证记录信息 -->
+	<view class="diagRecord-container">
+		<view class="diagRecord-item" wx:for="{{timeline}}" wx:key="unique" wx:for-index="index" wx:for-item="yearItems">
+			<view class="diagRecord-item-year">{{index}}</view>
+			<view class="diagRecord-item-month {{diagnostic.isActive ? 'monthActive' : ''}}" wx:for="{{yearItems}}" wx:for-index="diagnostic_index" wx:for-item="diagnostic" wx:key="unique">
+				<view class="diagRecord-item-date">{{diagnostic.create_date.month + 1}}月{{diagnostic.create_date.date}}日</view>
+				<view class="diagRecord-box" bindtap="bindDiagnostic_result" data-monthIndex="{{diagnostic_index}}" data-yearIndex="{{index}}">
+					<navigator class="diagRecord-item-diagBox"  open-type='navigateTo' url='../diseaseResult/diseaseResult?disease={{diagnostic.diagnostic_result}}' hover-class="none">
+						<text class="diagRecord-item-diag">{{diagnostic.diagnostic_result}}</text>
+						<image class="diagRecord-item-diagIcon" src="{{diagnostic.isActive?'/static/image/public/jinru_1.png':'/static/image/public/jinru.png'}}"></image>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,17 @@
+<template name="detailsList">
+  <navigator class='programs-details-item' open-type='navigate' url='../programsDetails/programsDetails?id={{solution_id}}' hover-class='none'>
+    <view class='details-item-img'>
+      <image src='{{solution_icon}}'></image>
+    </view>
+    <view class='details-item-info'>
+      <view class='details-info-up'>
+        <rich-text nodes="<div class='details-info-upname'>{{solution_name}}</div>"></rich-text>
+        <view class='details-info-uprate'>
+          <image src='/static/image/programList/xin.png' class='details-info-uprateImg' wx:for="{{solution_score}}" wx:key="index"></image>
+        </view>
+      </view>
+      <rich-text nodes="<div class='details-info-down'>{{disease_synopsis}}</div>"></rich-text>
+    </view>
+    <image class='details-item-icon' src="/static/image/programList/jinqu2.png"></image>
+  </navigator>
+</template>

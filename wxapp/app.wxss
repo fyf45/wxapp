@@ -1,0 +1,88 @@
+page{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+page,view,text,image,navigator,textArea{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* 搜索 */
+.search {
+  width: 100%;
+  height: 64rpx;
+  background-color: #ffffff;
+  border-radius: 32rpx;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx 
+		#e1e0e0;
+}
+
+.search .search-int {
+  width: 80%;
+  height: 100%;
+  font-size: 30rpx;
+  color: #202020;
+  padding-left: 24rpx;
+  opacity: .9;
+}
+
+.place-holder {
+  font-size: 24rpx;
+  color: #abaaaf;
+  font-family: PingFang-SC-Regular;
+}
+
+.search-img{
+  width: 35rpx;
+	height: 35rpx;
+}
+.search-imgBox{
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 滚动列表取消滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+button[disabled] {
+    color: #fff !important;
+    background: #e43c62 !important;
+    opacity: .5 !important;
+}
+
+/* 空白记录 */
+.commonNullContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 238rpx 0 0 0;
+  background: #fafafa;
+}
+
+.commonNullContainer-img {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.commonNullContainer-txt {
+  font-size: 28rpx;
+  color: #909090;
+  text-align: center;
+  padding-top: 30rpx;
+  line-height: 45rpx;
+}
+@import '/template/allPrograms-template/allPrograms-template.wxss';

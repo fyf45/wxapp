@@ -1,0 +1,239 @@
+.orderMessage {
+  width: 100%;
+  height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+
+.orderMessage-details {
+  width: 100%;
+}
+
+.orderMessage-details-item {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+  padding: 33rpx 25rpx;
+  margin-bottom: 24rpx;
+}
+
+.orderMessage-details-time {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-bottom: 33rpx;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.orderMessage-timeA {
+  font-size: 28rpx;
+  color: #ababab;
+}
+
+.orderMessage-timeB {
+  font-size: 28rpx;
+  color: #ef486e;
+}
+
+/* 订单商品 */
+
+.orderMessage-details-pro {
+  padding-top: 33rpx;
+  padding-bottom: 24rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.orderMessage-proLeft {
+  width: 126rpx;
+  height: 126rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  border: solid 1rpx #eee;
+}
+
+.orderMessage-proLeftImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.orderMessage-proRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 30rpx;
+}
+
+.orderMessage-proRight-name {
+  font-size: 26rpx;
+  color: #353535;
+  padding-bottom: 5rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical; /* 2行之后溢出才用省略号 */
+  -webkit-line-clamp: 1;
+}
+
+.orderMessage-proRight-info {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-bottom: 5rpx;
+}
+
+.orderMessage-proRight-color {
+  padding-right: 24rpx;
+}
+
+.orderMessage-proRight-color, .orderMessage-proRight-count {
+  font-size: 24rpx;
+  color: #ababab;
+}
+
+.orderMessage-proRight-num {
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* 订单编号 */
+
+.orderMessage-details-Logistics {
+  padding-top: 24rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderMessage-Logistics-numbering {
+  font-size: 28rpx;
+  color: #353535;
+}
+
+.orderMessage-Logistics-btn {
+  width: 148rpx;
+  height: 64rpx;
+  background-color: #ef486e;
+  border-radius: 5px;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  font-size: 28rpx;
+}
+
+/* 物流状态 */
+
+.LogisticsBox {
+  border-top: 1px solid #e4e4e4;
+  margin-top: 24rpx;
+  padding: 30rpx;
+}
+
+.LogisticsBox-type {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-bottom: 20rpx;
+}
+
+.LogisticsBox-type-name {
+  padding-right: 20rpx;
+}
+
+.LogisticsBox-type-name, .LogisticsBox-type-numbering {
+  font-size: 28rpx;
+  letter-spacing: 0rpx;
+}
+
+.LogisticsBox-state {
+  padding: 0 20rpx;
+}
+
+.LogisticsBox-stateItem {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+  padding: 24rpx 0;
+}
+
+.LogisticsBox-stateItem::after {
+  content: '';
+  position: absolute;
+  z-index: 9;
+  left: 8rpx;
+  top: 0;
+  border-left: 1rpx solid #d4d3d3;
+  height: 100%;
+}
+
+.LogisticsBox-stateItem:nth-child(1)::after {
+  height: 50%;
+  top: 55%;
+}
+
+.LogisticsBox-stateItem:nth-last-child(1)::after {
+  height: 50%;
+  bottom: 57%;
+}
+
+.LogisticsBox-stateItem-dot {
+  width: 18rpx;
+  height: 18rpx;
+  background-color: #d2d2d2;
+  border-radius: 50%;
+}
+
+.LogisticsBox-stateItem-dotActive {
+  background-color: #ef486e;
+}
+
+.LogisticsBox-stateItem-message {
+  padding-left: 30rpx;
+  flex: 1;
+}
+
+.LogisticsBox-message-time, .LogisticsBox-message-txt {
+  font-size: 28rpx;
+  color: #909090;
+  line-height: 45rpx;
+}
+
+.commonNullContainer-img {
+  display: block;
+  width: 124rpx;
+  height: 127rpx;
+}
+.down_prompt{
+  position: relative;
+  text-align: center;
+} 
+.down_prompt_txt{
+  font-size: 24rpx;
+	color: rgba(204, 204, 204, 1);
+}
+.down_prompt_txt::before,.down_prompt_txt::after{
+  display: block;
+  content: "";
+  width: 52rpx;
+	height: 0rpx;
+  border-bottom: 1rpx solid rgba(204, 204, 204, .6);
+  position: absolute;
+  top: 50%;
+}
+.down_prompt_txt::before{
+  left: 30%;
+}
+.down_prompt_txt::after{
+  left: 62%;
+}

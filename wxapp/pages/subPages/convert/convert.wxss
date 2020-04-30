@@ -1,0 +1,202 @@
+.convert {
+  width: 100%;
+  height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+
+.convert-head {
+  position: relative;
+  width: 100%;
+  height: 112rpx;
+  background-image: linear-gradient(-80deg, rgba(240, 74, 110, 0.96) 0%, rgba(249, 114, 154, 0.96) 100%),
+                      linear-gradient(#fffefe, #fffefe);
+  /* box-shadow: 0rpx 2rpx 29rpx 0rpx 
+		#e1e0e0; */
+  border-radius: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.convert-head-total, .convert-head-type {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  color: #fff;
+}
+
+.convert-head-total {
+  font-size: 48rpx;
+  padding-left: 58rpx;
+}
+
+.convert-head-totalTxt {
+  font-size: 24rpx;
+  margin-left: 19rpx;
+}
+
+.convert-head-totalImg, .convert-head-orderImg {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.convert-head-totalImg_rotate {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+
+.convert-head-record, .convert-head-order {
+  background-color: #f695aa;
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: 33rpx;
+  width: 143rpx;
+  height: 45rpx;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.convert-head-record {
+  margin-right: 22rpx;
+}
+
+.convert-head-order {
+  margin-right: 33rpx;
+}
+
+.convert-head-recordImg {
+  width: 26rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+.convert-head-orderImg {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+/* 换购列表 */
+
+.convert-container {
+  width: 100%;
+  padding: 27rpx 0;
+}
+
+.convert-container-title {
+  font-size: 36rpx;
+  color: #353535;
+}
+.convert-container-url{
+  margin-top: 24rpx;
+}
+.convert-container-item {
+  width: 100%;
+  height: 162rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.convert-container-itemLeft {
+  width: 162rpx;
+	height: 162rpx;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.convert-container-itemLeftImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.convert-item-info {
+  flex: 1;
+  height: 100%;
+  margin-left: 26rpx;
+  padding-right: 37rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-content: space-between; */
+}
+
+.convert-item-infoText {
+  font-size: 26rpx;
+  color: #353535;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.convert-item-infoBox {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.convert-item-infoBoxImg {
+  width: 39rpx;
+  height: 30rpx;
+}
+
+.convert-item-infoBoxText {
+  font-size: 30rpx;
+  color: #ef486e;
+  padding-left: 24rpx;
+}
+
+.convert-item-infoBoxText01 {
+  font-size: 24rpx;
+}
+
+/* 贝壳描述 */
+
+.convert-description {
+  width: 100%;
+  background: white;
+  position: absolute;
+  top: 139rpx;
+  left: 0;
+  padding: 70rpx 60rpx;
+  border-radius: 5px;
+}
+
+.convert-description-group:nth-child(1) {
+  margin-bottom: 75rpx;
+}
+
+.convert-description-group:nth-child(2) {
+  margin-bottom: 40rpx;
+}
+
+.convert-description-title {
+  font-size: 36rpx;
+  color: #353535;
+  padding-bottom: 40rpx;
+}
+
+.convert-description-con {
+  font-size: 24rpx;
+  color: #424040;
+  line-height: 45rpx;
+  text-align: justify;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.convert-active {
+  background: rgba(0, 0, 0, 0.5);
+}

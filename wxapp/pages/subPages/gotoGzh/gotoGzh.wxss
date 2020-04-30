@@ -1,0 +1,23 @@
+.regardBox-container{ 
+  width: 100%; 
+  min-height: 100%; 
+  padding: 24rpx; 
+  background: #fafafa; 
+} 
+.regardBox-txt{ 
+  display: inline-block; 
+  margin: 30rpx 0; 
+  font-size: 28rpx; 
+  background: #ef486e; 
+  color: #fff; 
+  padding: 6rpx 24rpx; 
+  border-radius: 50px; 
+} 
+.regardBox-bg{ 
+  display: block; 
+  width: 100%; 
+  height: 255.5rpx; 
+} 
+.regardBox-target{ 
+  width: 100%  
+}

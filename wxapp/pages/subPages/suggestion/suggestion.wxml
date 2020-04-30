@@ -1,0 +1,9 @@
+<view class="suggestion">
+  <form bindsubmit="bindFormSubmit">
+    <view class="suggestion_inputBox">
+      <textarea placeholder="请在此处写下您的建议或者反馈" name="suggestion" class="suggestion_text" placeholder-class="suggestion-placeholder" bindinput="bindwordNum" maxlength="{{suggestion_max_length}}" value=""/>
+      <view class="suggestion_word">{{wordNum?wordNum:0}}/{{suggestion_max_length}}({{suggestion_max_length}}字以内)</view>
+    </view>
+    <button form-type="submit" class="suggestion_submit" disabled="{{!wordNum}}"> 提交 </button>
+  </form>
+</view>

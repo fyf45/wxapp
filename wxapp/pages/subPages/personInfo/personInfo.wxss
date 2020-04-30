@@ -1,0 +1,130 @@
+.personInformation {
+  width: 100%;
+  height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+
+.personInformation-list {
+  background-color: #fff;
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+}
+
+/* 头像 */
+
+.personInformation-headType {
+  height: 165rpx;
+  padding: 0 60rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.personInformation-head-name {
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.personInformation-headBox {
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.personInformation-headBox-img {
+  display: block;
+  width: 121rpx;
+  height: 121rpx;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.personInformation-headBox-icon {
+  width: 41rpx;
+  height: 33rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+}
+
+/* 昵称，性别，生日公用样式 */
+
+.personInformation-pubItem {
+  height: 90rpx;
+  display: flex;
+  flex-flow: ROW nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60rpx;
+  border-top: 1rpx solid #e5e5e5;
+}
+
+.pubItem-name {
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.pubItem-int {
+  flex: 1;
+  height: 100%;
+  padding: 0 10rpx;
+  text-align: right;
+  font-size: 30.48rpx;
+  color: #909090;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pubItem-img {
+  width: 16rpx;
+  height: 29rpx;
+}
+
+/* 提交 */
+
+.addressFill-form-submit {
+  margin-top: 100rpx;
+  width: 702rpx;
+  height: 98rpx;
+  background-color: #ef486e;
+  border-radius: 5px;
+  font-size: 32rpx;
+  line-height: 98rpx;
+  color: #fff;
+}
+
+.addressFill-form-submit::after {
+  border: none;
+}
+
+.addressFill-form-submitActive {
+  background: #e43c62;
+}
+
+.pub_cancle {
+  color: #939393;
+  font-size: 32rpx;
+}
+
+.pub_sure {
+  color: #353535;
+  font-size: 32rpx;
+}
+
+.myCanvas {
+  /* visibility: hidden; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}

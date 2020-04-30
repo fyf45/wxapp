@@ -1,0 +1,88 @@
+<view class='orderSubmit' wx:if="{{size > 0}}">
+	<!-- 账户余额 -->
+	<view class="order-balanceBox">
+		<view class='order-balance'>账户余额：
+			<text class="order-add-addressLeftTxt">{{cowry}}</text> 贝壳</view>
+		<!-- <view class="order-balanceBuy">直接购买</view> -->
+	</view>
+	<!-- 添加收货地址 -->
+	<view class='orderSubmit-container'>
+		<navigator class='orderAddress' open-type='navigateTo' url='../addressList/addressList?needRespond=true' wx:if="{{addresses != null && addresses.length > 0}}">
+			<view class='orderAddress-left'>
+				<view class='orderAddress-left-userinformation'>
+					<text class='orderAddress-left-name'>{{addresses[0].address_user}}</text>
+					<text class='orderAddress-left-phone'>{{addresses[0].address_mobile}}</text>
+					<text class='orderAddress-left-company' wx:if="{{addresses[0].address_label}}">{{addresses[0].address_label}}</text>
+				</view>
+				<view class='orderAddress-left-place'>{{addresses[0].address_province}} {{addresses[0].address_city}} {{addresses[0].address_county}} {{addresses[0].address_detail}}</view>
+			</view>
+			<view class='orderAddress-right'>
+				<image class='orderAddress-rightImg' src='/static/image/public/jinru.png'></image>
+			</view>
+		</navigator>
+
+		<navigator class='order-add-address' open-type='navigateTo' url='../addressFill/addressFill?needRespond=true' wx:else>
+			<view class='order-add-addressLeft'>
+				<text class='order-add-addressLeftTxt'>+添加收货地址</text>
+			</view>
+			<view class='order-add-addressRight'>
+				<image src='/static/image/public/jinru.png' class='order-add-addressRightImg'></image>
+			</view>
+		</navigator>
+
+		<!-- 兑换的产品 -->
+		<view class='orderProduct'>
+			<view class='orderProduct-details'>
+				<view class='orderProduct-detailsLeft'>
+					<image src='' class='orderProduct-detailsLeftImg' style="background-image: url({{records[currentItemIndex].sku_icon}})"></image>
+				</view>
+				<view class='orderProduct-detailsRigth'>
+					<view class='orderProduct-detailsRigth-name'>{{records[currentItemIndex].sku_name}}</view>
+					<view class='orderProduct-detailsRigth-stock'>库存{{records[currentItemIndex].inv_quantity}}件</view>
+					<view class='orderProduct-detailsRigth-num'>{{records[currentItemIndex].sku_price}}贝壳</view>
+				</view>
+			</view>
+			<!-- 兑换类型 -->
+			<view class='orderProductType'>
+				<text class='orderProductType-txt'>规格</text>
+				<view class='orderProductType-item'>
+					<text wx:for="{{records}}" class="orderProductType-item-txt {{currentItemIndex == index?'orderProductType-item-txt-active':''}}" bindtap="bindModelChanged" wx:key="index" data-index="{{index}}">{{item.sku_model}}</text>
+				</view>
+			</view>
+			<!-- 兑换数量 -->
+			<view class='orderProductCount'>
+				<text class='orderProductCount-txt'>数量</text>
+				<view class='orderProductCount-num'>
+					<button class='orderProductCount-numReduce' bindtap="bindQtyTap" disabled="{{qty <= 1}}" data-offset="-1">-</button>
+					<input class='orderProductCount-numInt' type='number' value='{{qty}}' bindinput="bindQtyInput" />
+					<button class='orderProductCount-numAdd' bindtap='bindQtyTap' disabled="{{qty >= records[currentItemIndex].inv_quantity || records[currentItemIndex].sku_price * (qty + 1) > cowry}}" data-offset="1">+</button>
+				</view>
+			</view>
+			<view class='orderProductTotal'>
+				<view class='orderProductTotal-txt'>合计</view>
+				<text class='orderProductTotal-num'>{{records[currentItemIndex].sku_price * qty}}贝壳</text>
+			</view>
+		</view>
+	</view>
+	<button class='addSubmit' bindtap='bindOrderButtonTap' disabled="{{isClose}}" hover-class='addSubmit-active'>提交订单</button>
+
+
+	<!-- 贝壳币不足出现的提示页面 -->
+	<view class="shellsNotEnough_mask" wx:if="{{isClose}}">
+		<view class="shellsNotEnough_box">
+			<view class="shellsNotEnough_wrap">
+				<view class="shellsNotEnough_jinling">
+					<image class="shellsNotEnough_jinlingImg" src="../../../static/image/orderSubmit/cry.png"></image>
+				</view>
+				<view class="shellsNotEnough_info">
+					<text class="shellsNotEnough_title">贝壳精灵温馨提示：</text>您的贝壳不足，无法完成 当前产品兑换，可转发小程序
+					<text class="shellsNotEnough_getMore">获取更多贝壳</text>哦！
+				</view>
+				<view class="shellsNotEnough_btnBox">
+					<button class="shellsNotEnough_btnKnow" bindtap="onCloseshellBox">知道了</button>
+					<button class="shellsNotEnough_btnSend" open-type="share" bindtap="onShareAppMessage">去转发</button>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

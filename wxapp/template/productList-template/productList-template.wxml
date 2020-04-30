@@ -1,0 +1,20 @@
+<template name="products">
+  <navigator url="/pages/subPages/commodityDetails/commodityDetails?id={{sku_id}}" class="pro-item">
+      <view class="pro-item-imgBox">
+        <image class="pro-item-img" src="{{sku_icon}}"></image>
+      </view>
+      <text class="pro-item-title">{{sku_name}}</text>
+      <text class="pro-item-con">{{sku_brief}}</text>
+      <view class="pro-item-priceInfo">
+        <view class="pro-priceInfo-discountBox">
+          <image class="priceInfo-discountBox-icon" src="../../static/image/index/cowry.png"></image>
+          <text class="priceInfo-discountBox-num">{{sku_price}}</text>
+        </view>
+        <view class="pro-priceInfo-OriginalBox">
+          <text class="priceInfo-OriginalBox-txt">原价: </text>
+          <image class="priceInfo-OriginalBox-icon" src="../../static/image/index/cowry_black.png"></image>
+          <text class="priceInfo-OriginalBox-num">{{sku_origin_price}}</text>
+        </view>
+      </view>
+    </navigator>
+</template>

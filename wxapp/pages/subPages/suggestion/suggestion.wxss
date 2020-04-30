@@ -1,0 +1,50 @@
+.suggestion {
+  width: 100%;
+  min-height: 100%;
+  padding: 24rpx;
+  background: #fafafa;
+}
+
+.suggestion_inputBox {
+  width: 100%;
+  height: 398rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 29rpx 0rpx rgba(197, 197, 197, 1);
+  border-radius: 5px;
+  position: relative;
+}
+
+.suggestion_text {
+  display: block;
+  width: 100%;
+  height: 360rpx;
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: rgba(142, 142, 142, 1);
+}
+
+.suggestion_word {
+  position: absolute;
+  right: 40rpx;
+  bottom: 30rpx;
+  font-size: 24rpx;
+  color: rgba(142, 142, 142, .6);
+}
+
+.suggestion-placeholder {
+  font-size: 24rpx;
+  color: rgba(142, 142, 142, 0.6);
+}
+
+.suggestion_submit {
+  margin-top: 24rpx;
+  height: 88rpx;
+  background-color: #ef486e;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.suggestion_submit::after {
+  border: none;
+}

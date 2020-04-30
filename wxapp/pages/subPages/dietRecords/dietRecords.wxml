@@ -1,0 +1,45 @@
+<view class="dietRecords" wx:if="{{solution_name}}">
+  <!-- 开始艾灸 -->
+  <view class="module-one">
+    <!-- 请选择 -->
+    <view class="choosebox">
+      <text class="choosebox-txt">食疗记录</text>
+      <view class="choosebox-info">
+        方案进度
+        <text class="choosebox-info-time"> {{therapy_day}}/{{solution_days}} </text>(天)
+      </view>
+    </view>
+    <!-- 完成情况 -->
+    <view class="dietRecordsBox">
+      <view class="finishCon">
+        <view class="finishCon-left">
+          <text class="finishCon-a">是否完成本次食疗</text>
+          <text class="finishCon-b">(若完成请点击右侧完成按钮)</text>
+        </view>
+        <!-- 已完成   finishCon-btnActive-->
+        <button class="finishCon-btn" bindtap="bindTherapyFinishTap">完成</button>
+      </view>
+    </view>
+  </view>
+  <!-- 配方和功效 -->
+  <view class="dietRecords-container">
+    <text class="dietRecords-title">配方与功效说明</text>
+    <view class="dietRecords-ways" wx:for="{{formulaData}}" wx:key="unique" wx:index="index">
+      <view class="ways-type"><text>{{item.type}}</text></view>
+      <view class="ways-con">
+        <text class="ways-txt" wx:for="{{item.data}}" wx:index="index" wx:key="unique"  wx:for-item="items">{{items}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 分享提示 -->
+  <view class='moxa-startBox' wx:if="{{showShare}}">
+    <view class='moxa-startBox-share'>
+      <view class='moxa-startBox-shareContent'>
+        <image src='/static/image/public/close.png' class='shareContent-img' bindtap='bindCloseShareTap'></image>
+        <text class='shareContent-title'>快分享给好朋友获取贝壳吧!</text>
+        <text class='shareContent-txt'>(贝壳可以兑换艾饼和灸头哦)</text>
+        <button class='shareContent-btn' bindtap='bindShareTap'>分享</button>
+      </view>
+    </view>
+  </view>
+</view>

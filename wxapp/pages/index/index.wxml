@@ -1,0 +1,91 @@
+<import src='/template/search-template/search-template.wxml' />
+<import src='/template/productList-template/productList-template.wxml' />
+<view class="{{guide_first?'container_overflow':'container'}}" wx:if="{{articles}}">
+	<!-- 用户第一次指引 -->
+	<view class="firstGuide" wx:if="{{guide_first}}">
+		<view class="firstGuide_container">
+			<view class="firstGuide_arrow {{guide_num == 1?'firstGuide_arrowDiagnosis':guide_num == 2?'firstGuide_arrowConditioning':guide_num == 3?'firstGuide_arrowSearch':guide_num == 4?'firstGuide_arrowMoxa':''}}">
+				<image src="{{guide_num == 4?'../../static/image/index/arrow_ailiao.png':'../../static/image/index/arrow_tiaoli.png'}}" class="firstGuide_arrow_img"></image>
+			</view>
+			<view class="firstGuide_contentBox {{guide_num == 1?'firstGuide_boxDiagnosis':guide_num == 2?'firstGuide_boxConditioning':guide_num == 3?'firstGuide_boxSearch':guide_num == 4?'firstGuide_boxMoxa':''}}">
+				<view class="firstGuide_content">
+					<view class="firstGuide_txtBox">
+						<text class="firstGuide_txt" wx:if="{{guide_num == 1}}">欢迎来到小贝壳</text>
+						<text class="firstGuide_txt">{{guide_txt}}</text>
+					</view>
+					<button class="firstGuide_btn" bindtap="bindGuideChange">知道了</button>
+				</view>
+			</view>
+			<view class="fixedBottom">
+				<image src="{{guide_num == 4?'../../static/image/index/ai_bottom.png':'../../static/image/index/bottom.png'}}" class="fixedBottom_img" bindtap="bindMoxaUrl"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 搜索列表 -->
+	<view class="searchList {{guide_num == 3?'display':''}}">
+		<template is="searchTemplate" />
+	</view>
+	<!-- tab按钮 -->
+	<view class='my-tab'>
+		<!--<navigator url='/pages/subPages/diagRecord/diagRecord' open-type='navigateTo' class="tab-item display">-->
+		<navigator url='/pages/subPages/diagRecord/diagRecord' open-type='navigateTo' class="tab-item {{guide_num == 1?'display':''}}">
+			<image class='tab-img' src='/static/image/index/tongjingbianzheng.png' mode='aspectFit'></image>
+			<text class='tab-text'>痛经辨证</text>
+		</navigator>
+		<navigator url='/pages/subPages/programsType/programsType' open-type='navigateTo' class="tab-item {{guide_num == 2?'display':''}}">
+			<image class='tab-img' src='/static/image/index/wodetiaoli.png' mode='aspectFit'></image>
+			<text class='tab-text'>我的调理</text>
+		</navigator>
+	</view>
+	<!-- 调理时间 -->
+	<view class='therapy-infoBox'>
+		<view class='therapy-info' wx:if="{{myTherapies}}">
+			<navigator class='info-item' wx:for="{{myTherapies}}" wx:for-index="type_id" wx:key="type_id" wx:for-item="therapy" url='../subPages/programsType/programsType?id={{type_id}}' open-type='navigateTo'>
+				<view class='info-title'>{{therapy.key}}</view>
+				<view class='info-num'>{{therapy.value}}{{type_id==1?'天':'次'}}</view>
+			</navigator>
+		</view>
+	</view>
+	<!-- 贝壳资讯autoplay -->
+	<view class='my-therapy' wx:if="{{articles}}">
+		<view class='therapy-title'>贝壳资讯</view>
+		<swiper class='therapy-list' vertical interval="5000" circular display-multiple-items="2" easing-function="linear" bindchange="swiperChange">
+			<swiper-item class='therapy-itemBox' wx:for="{{articles}}" wx:key="index" wx:for-item="article">
+				<navigator class="therapy-item" url='../subPages/crustaInfo/crustaInfo?id={{article.article_id}}' open-type='navigate'>
+					<image class='therapy-img' src='{{article.article_icon}}' mode='scaleToFill'></image>
+					<view class='therapy-cont'>
+						<text class="therapy-cont-title">{{article.article_title}}</text>
+						<text class='therapy-cont-txt'>{{article.article_brief}}</text>
+						<view class="therapy-cont-typeBox">
+							<view class="therapy-cont-type">
+								<view class="therapy-type-left">{{article.article_hits}}人看过</view>
+								<view class="therapy-type-right">
+									<view class="therapy-supperBox">
+										<image class="therapy-supperBox-img" src="../../static/image/public/zan.png"></image>
+										<text class="therapy-supperBox-txt">{{article.article_likes}}</text>
+									</view>
+									<view class="therapy-commentBox">
+										<image class="therapy-commentBox-img" src="../../static/image/public/comment.png"></image>
+										<text class="therapy-commentBox-txt">{{article.article_remarks}}</text>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</navigator>
+			</swiper-item>
+		</swiper>
+		<view class="dots" wx:if="{{articles.length > 2}}">
+			<block wx:for="{{articles}}" wx:key="index">
+				<view class="dot {{index==swiperCurrent?'active':''}}"></view>
+			</block>
+		</view>
+	</view>
+
+	<!-- 艾灸商品 -->
+	<view class="pro-list">
+		<block wx:for="{{products}}" wx:key="index">
+			<template is="products" data="{{...item}}" />
+		</block>
+	</view>
+</view>

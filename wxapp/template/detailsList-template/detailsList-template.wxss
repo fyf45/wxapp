@@ -1,0 +1,63 @@
+/* 详情列表 */
+.programs-details-item{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 24rpx;
+}
+.details-item-img{
+  width: 112rpx;
+	height: 112rpx;
+	/* background-color: #291010; */
+	border-radius: 10rpx;
+}
+.details-item-img image{
+  width: 100%;
+  height: 100%;
+}
+.details-item-info{
+  flex: 1;
+  width: 448rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24rpx;
+}
+.details-info-up{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15rpx;
+}
+.details-info-upname{
+  width: 300rpx;
+  font-size: 34rpx;
+  color: rgba(82, 82, 82, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 24rpx;
+}
+.details-info-uprate{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.details-info-down{
+  color: rgba(171, 171, 171, 1);
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+.details-item-icon{
+  width: 16rpx;
+	height: 29rpx;
+}
+.details-info-uprateImg{
+  width: 26rpx;
+	height: 24rpx;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,15 @@
+<view class="diseaseDetail" wx:if="{{disease_id}}">
+  <view class="diseaseDetail-container">
+     <view class="diseaseDetail-container-titleOne">{{disease}}</view>
+     <view class="diseaseDetail-container-content">
+      <text class="diseaseDetail-container-txt">{{disease_synopsis}}</text>
+     </view>
+     <view class="diseaseDetail-container-titleTwoBox">
+        <view class="diseaseDetail-container-titleTwoLine"></view>
+        <text class="diseaseDetail-container-titleTwo">贝壳小建议</text>
+      </view>
+     <view class="diseaseDetail-container-content">
+      <text class="diseaseDetail-container-txt">{{disease_recommend}}</text>
+     </view>
+  </view>
+</view>

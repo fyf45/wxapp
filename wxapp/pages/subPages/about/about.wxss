@@ -1,0 +1,37 @@
+.about{
+  width: 100%;
+  padding: 24rpx 36rpx;
+  background-color: rgba(255, 255, 255, 1);
+}
+.title-box{
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30rpx;
+}
+.about-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  padding-left: 20rpx;
+}
+.about-img{
+  display: inline-block;
+  width: 30rpx;
+}
+.about-txt {
+  font-size: 28rpx;
+  text-align: justify;
+  text-indent: 45rpx;
+  line-height: 48rpx;
+  color: rgba(53, 53, 53, .8);
+  padding-bottom: 30rpx
+}
+.about-content {
+  width: 100%;
+  padding: 24rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx
+}

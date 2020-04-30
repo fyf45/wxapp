@@ -1,0 +1,10 @@
+<view class='searchBox'>
+  <view class='search'>
+    <image class='search-img' src='/static/image/public/search.png'></image>
+    <input placeholder='病症、穴位...' class='search-int' placeholder-class="place-holder" value="{{searchKeyword}}" bindinput='bindKeywordInput' bindcomfirm="bindSearchButtonTap" auto-focus="true"></input>
+    <view class='search-imgBox' wx:if="{{searchKeyword}}" bindtap='bindClearSearchTap'>
+      <image class='search-img' src='/static/image/public/close.png'></image>
+    </view>
+  </view>
+  <button class='search-btn' hover-class='search-btn-hover' bindtap='bindSearchButtonTap'>{{searchKeyword ? "搜索" : "取消"}}</button>
+</view>

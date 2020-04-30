@@ -1,0 +1,148 @@
+.addressList {
+  width: 100%;
+  min-height: 100%;
+  background: #fafafa;
+  padding: 0 24rpx;
+  overflow: hidden;
+}
+
+.addressList-noPrompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 238rpx 0 0 0;
+  background: #fafafa;
+}
+
+.addressList-noPrompt-img {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.addressList-noPrompt-txt {
+  width: 260rpx;
+  font-size: 28rpx;
+  color: #909090;
+  text-align: center;
+  padding-top: 30rpx;
+  line-height: 45rpx;
+}
+.addressList-noBtn-addCommon {
+  width: 700rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #ef486e;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.addressList-noBtn-addCommon::after{
+  border: none;
+}
+.addressList-noBtn-add {
+  position: fixed;
+  left: 50%;
+  bottom: 400rpx;
+  margin-left: -350rpx;
+
+}
+
+.addressList-noBtn-addAcive {
+  background-color: #e23f64;
+}
+
+.addressList-yesBox-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0 41rpx;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+  margin-top: 24rpx;
+  margin-bottom: 28rpx;
+}
+
+.addressList-yesBox-itemType {
+  padding: 36rpx 0 28rpx 0;
+  border-bottom: 1px solid #f7f3f3;
+}
+
+.addressList-itemType-userInfo {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.addressList-userInfo-name, .addressList-userInfo-phone {
+  font-size: 30rpx;
+  color: #353535;
+  padding-right: 17rpx;
+  padding-bottom: 18rpx;
+}
+
+.addressList-userInfo-name {
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.addressList-itemType-address {
+  font-size: 28rpx;
+  color: #ababab;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.addressList-yesBox-itemEdit {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+
+.addressList-itemEditLeft {
+  height: 36rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.addressList-itemEditLeft-txt{
+  width: 70rpx;
+  line-height: 35rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #ef486e;
+  border-radius: 2px;
+  border: solid 1rpx #ef486e;
+  margin-right: 24rpx;
+}
+
+.addressList-itemEditRight, .addressList-editGroup {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 100%;
+}
+
+.addressList-editImg {
+  width: 27rpx;
+  height: 28rpx;
+}
+
+.addressList-editTxt {
+  font-size: 28rpx;
+  color: #353535;
+  padding-left: 8rpx;
+}
+
+.addressList-editGroup:nth-child(1) {
+  padding-right: 24rpx;
+}
+
+.addressList-yesBox{
+  margin-bottom: 75rpx;
+}

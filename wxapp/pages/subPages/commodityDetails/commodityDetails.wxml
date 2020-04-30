@@ -1,0 +1,32 @@
+<view class='commodityDetails' wx:if="{{size==1}}">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" interval="15000" indicator-active-color="#ef486e" class='swiperNew' autoplay="true" circular="true">
+    <swiper-item wx:for="{{sku.sku_images}}" wx:key="index">
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 商品信息 -->
+  <view class='commodityDetails-content'>
+    <view class='commodity-message'>
+      <view class='commodity-message-title'>商品信息</view>
+      <view class='commodity-messageBox'>
+        <view class='commodity-messageBox-name'>{{sku.sku_name}}</view>
+        <view class='commodity-messageBox-numbers'>
+          <image src='/static/image/public/xiangqing_beike.png' class='commodity-messageBox-numbersImg'></image>
+          <text class='commodity-messageBox-numbersTxt'>{{sku.sku_price}}<text class='commodity-messageBox-numbersTxt01'>贝壳</text>
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品详情 -->
+  <view class='commodityDetailsBox'>
+    <view class='commodityDetails-title'>商品详情</view>
+    <rich-text class='commodityDetailsBox-imgList  commodityDetailsBox-text' nodes="{{sku.sku_description}}"></rich-text>
+  </view>
+<view style='height: 88rpx;' wx:if="{{isShowed}}"></view>
+  <!-- 按钮 -->
+  <button class='addSubmit' disabled="{{}}" bindtap="bindPurchaseTap" wx:if="{{isShowed}}">确定兑换</button>
+</view>

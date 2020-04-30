@@ -1,0 +1,84 @@
+<view class="crustaInfo" wx:if="{{article && html}}">
+  <!-- 资讯头部 -->
+  <view class="crustaInfo-head">
+    <view class="crustaInfo-headTitle">{{article.article_title}}</view>
+    <view class="headInfo">
+      <view class="headInfo-left">
+        <view class="headInfo-leftImgBox">
+          <image class="headInfo-left-logo" src="../../../static/image/public/logo.png"></image>
+        </view>
+        <text class="headInfo-left-txt">{{article.category_name}}</text>
+        <text class="headInfo-left-txt">{{article.article_author}}</text>
+      </view>
+      <view class="headInfo-right">
+        <text class="headInfo-right-text">{{article.article_date}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 资讯内容 -->
+  <view class="crustaInfo-content">
+    <rich-text class="crustaInfo-content-txt" nodes="{{html}}"></rich-text>
+    <view class="crustaInfo-content-complex">
+      <text class="complex-left">{{hits || 0}}人看过</text>
+      <view class="complex-right" wx:if="{{mylike}}" bindtap="bindLikeTap">
+        <image class="complex-right-icon" src="../../../static/image/public/yizan.png"></image>
+        <text class="complex-right-num complex-right-numActive" wx:if="{{like}}">{{like}}</text>
+      </view>
+      <view class="complex-right" wx:else bindtap="bindLikeTap">
+        <image class="complex-right-icon" src="../../../static/image/public/zan.png"></image>
+        <text class="complex-right-num " wx:if="{{like}}">{{like}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 资讯评论 -->
+  <view class="crustaInfo-review">
+    <!-- 评论顶部 -->
+    <view class="crustaInfo-reviewHead">
+      <text class="reviewHead-left">评论 (<text>{{remarks.length}}</text>)</text>
+      <view class="reviewHead-right">
+        <image class="reviewHead-right-icon" src="../../../static/image/public/pinlun.png"></image>
+        <button class="reviewHead-right-txt" id="remarkButton" bindtap="bindCommentTap">我也说两句</button>
+      </view>
+    </view>
+    <view class="crustaInfo-reviewCon" wx:for="{{remarks}}" wx:for-item="remark" wx:key="index">
+      <view class="reviewCon-left">
+        <image class="reviewCon-leftImg" style="background-image: url({{remark.user_avatar}})"></image>
+      </view>
+      <view class="reviewCon-right">
+        <view class="reviewCon-type">
+          <text class="reviewCon-type-name">{{remark.user_nickname}}</text>
+
+          <view class="reviewCon-type-rate" bindtap="bindRemarkLikeTap" data-id="{{remark.remark_id}}" wx:if="{{remark.remark_mylikes}}">
+            <image class="reviewCon-right-img" src="../../../static/image/public/yizan.png"></image>
+            <text class="reviewCon-right-txt complex-right-numActive" wx:if="{{remark.remark_likes}}">{{remark.remark_likes}}</text>
+          </view>
+          <view class="reviewCon-type-rate" bindtap="bindRemarkLikeTap" data-id="{{remark.remark_id}}" wx:else>
+            <image class="reviewCon-right-img" src="../../../static/image/public/zan.png"></image>
+            <text class="reviewCon-right-txt" wx:if="{{remark.remark_likes}}">{{remark.remark_likes}}</text>
+          </view>
+
+        </view>
+        <text class="reviewCon-type-content">{{remark.remark_content}}</text>
+        <text class="reviewCon-type-time">{{remark.remark_date}}</text>
+      </view>
+    </view>
+    <!-- 评论内容 -->
+  </view>
+  <!-- 右侧悬浮图标 -->
+  <movable-area class="crustaInfo-flow">
+    <movable-view direction="all"  class="crustaInfo-flowBox" x="{{x}}" y="{{y}}">
+      <button open-type="share" class="crustaInfo-flowIcon"></button>
+    </movable-view>
+  </movable-area>
+
+  <form bindsubmit="bindRemarkFormSubmit">
+    <view class="crustaInfo-flexBox" wx:if="{{showRemarkArea}}">
+      <view class="crustaInfo-conBox" style="bottom: {{keyboardHeight}}px">
+        <view class="crustaInfo-con">
+          <textarea class="crustaInfo-message" name="remarkContent" placeholder="我想说..." auto-focus="true" bindblur="bindCommentBlur" show-confirm-bar="{{false}}" id="textareaRemark" bindkeyboardheightchange="bindCommentShow" bindinput="bindCommentInput" placeholder-class="crustaInfo-mesSstle" fixed="true" adjust-position="{{false}}"></textarea>
+          <button class="crustaInfo-send" form-type="submit" disabled="{{!commentText || commentText.length < 3}}" >发送</button>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

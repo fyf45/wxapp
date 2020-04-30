@@ -1,0 +1,28 @@
+
+<view class="searchHistory" wx:if="{{my}}">
+  <!-- 搜索框 -->
+  <search-component />
+  <!-- 历史搜索 -->
+  <view class='searchList-historyPub'>
+    <view class='searchList-historyPubUp'>
+      <view class='searchList-historyPubUp-txt'>历史搜索</view>
+      <view class='searchList-historyPubUp-emptyBox' wx:if="{{my && my.length > 0}}">
+        <image class='searchList-historyPubUp-emptyBoxImg' src='/static/image/public/delete_shouhuo.png'></image>
+        <text class='searchList-historyPubUp-emptyBoxTxt' bindtap='bindClearHistoryTap'>清空历史记录</text>
+      </view>
+    </view>
+    <view class='searchList-historyPubDown'>
+      <navigator class='searchList-historyPubDown-txt' wx:for="{{my}}" wx:key="index" url="/pages/subPages/searchList/searchList?keyword={{item.search_keyword}}">{{item.search_keyword}}</navigator>
+      <text wx:if="{{!my || my.length == 0}}" class='history-null'>暂无历史搜索</text>
+    </view>
+    <!-- 热门搜素 -->
+    <view class='searchList-historyPubUp'>
+      <view class='searchList-historyPubUp-txt'>热门搜索</view>
+    </view>
+    <!-- 历史搜索 -->
+    <view class='searchList-historyPubDown'>
+      <navigator class='searchList-historyPubDown-txt' wx:for="{{all}}" wx:key="index" url="/pages/subPages/searchList/searchList?keyword={{item.search_keyword}}">{{item.search_keyword}}</navigator>
+      <text wx:if="{{!all || all.length == 0}}" class='history-null'>暂无热门搜索</text>
+    </view>
+  </view>
+</view>

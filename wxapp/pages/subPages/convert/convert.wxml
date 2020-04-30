@@ -1,0 +1,63 @@
+<view wx:if="{{records}}" class='convert {{showIntro?"convert-active":""}}'>
+  <!-- 贝壳总量，兑换记录 -->
+  <view class='convert-head'>
+    <view class='convert-head-total' bindtap='bindIntroButtonTap'>{{cowry}}
+      <view class='convert-head-totalTxt'>
+        贝壳
+        <image src='/static/image/convert/bekejieshao_right.png' class='convert-head-totalImg {{showIntro ? "convert-head-totalImg_rotate":""}}'></image>
+      </view>
+    </view>
+    <view class='convert-head-type'>
+      <navigator class='convert-head-record' open-type='navigate' url='../historyConvert/historyConvert'>
+        <image src='/static/image/convert/jilu.png' class='convert-head-recordImg'></image>
+        记录
+      </navigator>
+      <navigator class='convert-head-order' open-type='navigate' url='../orderMessage/orderMessage'>
+        <image src='/static/image/convert/order.png' class='convert-head-orderImg'></image>
+        订单
+      </navigator>     
+    </view>
+    <!-- 贝壳介绍 -->
+    <view class='convert-description' wx:if='{{showIntro}}'>
+      <view class='convert-description-group'>
+        <view class='convert-description-title'>什么是贝壳？</view>
+        <view class='convert-description-con'>贝壳是您在使用我们“贝壳健康”小程序过程中获得的一种奖励。贝壳可用于在平台兑换商品哦！
+        </view>
+      </view>
+      <view class='convert-description-group'>
+        <view class='convert-description-title'>怎么获取贝壳？</view>
+        <view class='convert-description-con'>
+          <text>1、注册贝壳用户获得</text>
+          <text>2、通过使用小贝壳艾灸获得</text>
+          <text>3、通过微信分享获得</text>
+          <text>4、通过贝壳兑换使用</text>
+          <text>5、通过系统赠送获得</text>
+          <text>6、通过评价方案获得</text>
+          <text>7、通过分享新用户获得</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 换购列表 -->
+  <view class='convert-container'>
+    <view class='convert-container-title'>商品兑换</view>
+    <view class='convert-container-list'>
+      <navigator wx:for="{{records}}" wx:key="index" open-type='navigateTo' url='../commodityDetails/commodityDetails?id={{item.sku_id}}' class="convert-container-url">
+        <view class='convert-container-item'>
+          <view class='convert-container-itemLeft'>
+            <image class='convert-container-itemLeftImg' src='' style="background-image: url({{item.sku_icon}});"></image>
+          </view>
+          <view class='convert-item-info'>
+            <view class='convert-item-infoText'>{{item.sku_name}}</view>
+            <view class='convert-item-infoBox'>
+              <image src='' class='convert-item-infoBoxImg' src='/static/image/public/xiangqing_beike.png'></image>
+              <text class='convert-item-infoBoxText'>{{item.sku_price}}<text class='convert-item-infoBoxText01'>贝壳</text></text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <text class='convert-item-infoText' wx:if="{{size==0}}">暂无可换购商品</text>
+  </view>
+</view>

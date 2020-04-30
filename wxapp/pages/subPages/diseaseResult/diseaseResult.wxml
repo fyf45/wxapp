@@ -1,0 +1,119 @@
+<view class="diseaseResult" wx:if="{{size > 0 || records.length>0}}">
+	<view class="diseaseResult-headBox {{disease == '气血虚弱证' ?'qixu-bruise' : disease == '肝肾亏虚证' ? 'liver-deficiency' : disease == '寒凝血瘀证' ? 'cold-bruise'  : disease == '湿热蕴结证' ? 'hot-bruise' : disease == '气滞血瘀证' ? 'qi-stagnation' : ''}}"> 
+		<view class="diseaseHead-leftBox">
+			<image class="diseaseHead-img" src="../../../static/image/diseaseResult/zhenzhen02.png"></image>
+			<image class="diseaseHead-img01" src="../../../static/image/diseaseResult/zhenzhen01.png"></image>
+			<view class="disease-left-pro">
+				<view class="disease-left-proBox">
+					<image class="left-pro-img" src="../../../static/image/diseaseResult/qipao.png"></image>
+					<view class="left-pro-txtBigBox">
+						<view class="left-pro-txtBox">
+							<text class="left-pro-txt">亲，小贝壳提醒您隔一段时间就重新辩证哦。</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="diseaseHead-con">
+			<text class="diseaseHead-con-result">啊哈!有结果咯...</text>
+			<text class="diseaseHead-con-txt">根据您的情况我们初步诊断为</text>
+			<navigator class="diseaseHead-con-typeBox" open-type='navigateTo' url='../diseaseDetail/diseaseDetail?disease={{disease}}'>
+				<text class="diseaseHead-typeBox-txt">{{disease}}</text>
+				<image class="diseaseHead-typeBox-img" src="../../../static/image/public/jinru.png"></image>
+			</navigator>
+		</view>
+	</view>
+	<!-- 辨证方案 -->
+	<view class="diseaseResult-container" wx:if="{{size > 0 || records.length>0}}">
+		<view class="diseaseResult-container-prompt">小贝壳根据经您的辨证结果为您生成的调理方案有以下{{size}}种：</view>
+		<view class="diseaseResult-content">
+			<!--辨证方案-->
+			<view wx:for="{{records}}" wx:for-index="idx" wx:for-item="solution" wx:key="idx" class="pubStyleRateBox {{currentPanelIndex == idx ? '' : 'pubStyleRateBox-collapsed'}}">
+				<view class="pubStyleRate-line"></view>
+				<view class="pubStyleRate-headType" bindtap="bindCollapsePanelTap" data-index="{{idx}}">
+					<text class="pubStyleRate-headType-title">{{solution.solution_type == 0 ? '艾灸调理' : solution.solution_type == 1 ? '贝壳按摩调理' : '食疗调理建议 (' + solution.solution_name + ')'}}</text>
+					<view class="promptBox">
+						<text class="pubStyleRate-headType-prompt">点击{{currentPanelIndex != idx ? '展开' : '收起'}}方案明细</text>
+						<image class="pubStyleRate-headType-icon  {{currentPanelIndex == idx ? 'headType-icon_rotate' : ''}}" src="../../../static/image/diseaseResult/down.png"></image>
+					</view>
+				</view>
+				<!-- 获取方案 -->
+				<!--辨证方案艾灸调理-->
+				<view class="moxaRateContent">
+					<!-- 穴位列表 -->
+					<view class="moxaRateContent-acupointList" wx:if="{{solution.solution_type == 0}}">
+						<view class="massageRateContent-acupointItem" wx:for="{{solution.solution_days}}" wx:key="unique" wx:for-index="solutionIndex">
+							<text class="massageRateContent-acupointItem-title">第{{solutionIndex+1}}天</text>
+							<view>
+								<block wx:for="{{solution.solution_details}}" wx:key="unique" wx:for-item="detail" wx:for-index="detailIndex" wx:if="{{detail.detail_day == solutionIndex + 1}}">
+									<text class="massageRateContent-acupointItem-name">{{detail.detail_acupoint}} ({{detail.detail_desc}})</text>
+									<text class="massageRateContent-acupointItem-file">({{detail.detail_temperature}}℃</text>
+									<text class="massageRateContent-acupointItem-minute">{{detail.detail_duration}}分钟)</text>
+								</block>
+							</view>
+						</view>
+					</view>
+					<view class="moxaRateContent-acupointList" wx:elif="{{solution.solution_type == 1}}">
+						<view class="massageRateContent-acupointItem" wx:for="{{solution.solution_days}}" wx:key="unique" wx:for-index="solutionIndex">
+							<text class="massageRateContent-acupointItem-title">第{{solutionIndex+1}}天</text>
+							<view>
+								<block wx:for="{{solution.solution_details}}" wx:key="unique" wx:for-item="detail" wx:for-index="detailIndex" wx:if="{{detail.detail_day == solutionIndex + 1}}">
+									<text class="massageRateContent-acupointItem-name">{{detail.detail_acupoint}} ({{detail.detail_desc}})</text>
+									<text class="massageRateContent-acupointItem-file">({{detail.detail_temperature}}档</text>
+									<text class="massageRateContent-acupointItem-minute">{{detail.detail_duration}})</text>
+								</block>
+							</view>
+						</view>
+					</view>
+					<view class="moxaRateContent-acupointList" wx:else>
+						<view class="massageRateContent-acupointItem  massageRateContent-acupointItemfood" wx:for="{{solution.solution_days}}" wx:key="unique" wx:for-index="solutionIndex">
+							<text class="massageRateContent-acupointItem-title">第{{solutionIndex+1}}天</text>
+							<block wx:for="{{solution.solution_details}}" wx:key="unique" wx:for-item="detail" wx:for-index="detailIndex" wx:if="{{detail.detail_day == solutionIndex + 1}}">
+								<text class="massageRateContent-acupointItem-name">{{detail.detail_acupoint}}</text>
+							</block>
+						</view>
+					</view>
+
+					<!-- 疗程天数 -->
+					<view class="pubStyleRateContent-dateBox">
+						<text class="pubStyleRateContent-dateTime">疗程：{{solution.solution_days}}天</text>
+						<view class="pubStyleRateContent-rateList">
+							<text class="pubStyleRateContent-rateList-txt">方案评分</text>
+							<view class="pubStyleRateContent-rateItem" wx:for="{{solution.solution_score}}" wx:key="index">
+								<image class="pubStyleRateContent-rateItem-icon" src='/static/image/programList/xin.png'></image>
+							</view>
+						</view>
+					</view>
+					<!-- 调理入口 -->
+					<view class="btnBox">
+						<button id="startTherapyButton" class="pubStyleRateContent-btn" bindtap="bindStartTherapy">现在就调理</button>
+						<button id="addTherapyButton" class="pubStyleRateContent-btn" data-solution="{{solution}}" bindtap="bindAddTherapy">{{solution.therapyId?'查看我的调理':'添加到我的调理'}}</button>
+					</view>
+
+					<!-- 预约弹窗 -->
+					<view class="activityBox" wx:if="{{solution.solution_type == solution_type &&solution_idx == idx&& isShow}}">
+						<view class="activityBox-wrap">
+							<view class="activityBox-container">
+								<view class="activityBox-up {{solution_type == 2?'activityBox-upOther':''}}">
+									<view class="{{solution_type == 0 ? 'activityBox-productOne' : solution_type == 1 ? 'activityBox-product' : 'activityBox-productTwo'}}">
+										<image src="{{solution_type == 0 ? '../../../static/image/diseaseResult/jiutou01.png' : solution_type == 1 ? '../../../static/image/diseaseResult/beike01.png' : '../../../static/image/diseaseResult/gzh.jpg'}}" class="activityBox-product_img"></image>
+									</view>
+									<text class="activityBox-name {{solution_type == 2?'activityBox-nameOther':''}}">{{solution_type == 0 ? '贝壳健康艾瑶珠' : solution_type == 1 ? '贝壳健康热疗按摩仪' : '贝壳健康公众号'}}</text>
+									<text class="activityBox-lead">{{solution_type == 0 || solution_type == 1? '像贝壳呵护珍珠一样呵护你的健康' : '关注为您推送更多健康调理资讯'}}</text>
+									<navigator url="{{solution_type == 0?'/pages/subPages/commodityDetails/commodityDetails?id=2&isShowed=true':'/pages/subPages/commodityDetails/commodityDetails?id=1&isShowed=true'}}" class="activityBox-more" wx:if="{{solution_type == 0 || solution_type == 1}}">（点击可查看产品详情）</navigator>
+								</view>
+								<view class="activityBox-down {{solution_type == 2?'activityBox-downOther':''}}">
+									<navigator class="activityBox-btn" open-type="navigate" url='{{"../gotoGzh/gotoGzh?solution_type="+solution_type}}'>{{solution_type == 2?'关注':'预定'}}</navigator>
+									<text class="activityBox-prompt" wx:if="{{solution_type == 0 || solution_type == 1}}">无需姓名电话等信息 点击“预定”即可预约</text>
+								</view>
+							</view>
+							<view class="activityBox-close" bindtap="bindCloseActivity">
+								<image src="../../../static/image/diseaseResult/close.png"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

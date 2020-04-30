@@ -1,0 +1,67 @@
+<view class='addressFill'>
+  <form bindsubmit="formSubmit" bindreset="formReset" class='addressFill-form'>
+    <!-- 收货人姓名 -->
+    <view class='addressFill-form-NameBox addressFill-form-pubBox'>
+      <view class='addressFill-form-IntBox'>
+        <input placeholder='收货人姓名' id="address_user" class='addressFill-Int' placeholder-class="place-holder" value='{{address.address_user}}' bindinput="bindInputCheck" />
+      </view>
+    </view>
+    <!-- 手机号 -->
+    <view class='addressFill-form-phoneBox addressFill-form-pubBox'>
+      <view class='addressFill-form-IntBox addressFill-form-IntLine'>
+        <input id="address_mobile" placeholder='手机号' class='addressFill-Int {{errors.address_mobile ? "addressFill-Int-Error" : "" }}' placeholder-class="place-holder" maxlength='11' type='number' value="{{address.address_mobile}}" bindinput="bindInputCheck" bindblur="bindInputCheck"
+        />
+        <view class='addressFill-IntBox-close'>
+          <button open-type="getPhoneNumber" plain="true" bindgetphonenumber="bindGetPhoneNumber">
+            <image src="/static/image/public/mobile.png"></image>
+          </button>
+        </view>
+      </view>
+
+      <view class='addressFill-form-IntBox'>
+        <input placeholder='固定电话（选填）' id="address_telephone" bindinput="bindInputCheck" class='addressFill-Int' placeholder-class="place-holder" type='number' maxlength='11' value="{{address.address_telephone}}" />
+      </view>
+    </view>
+    <!-- 省市区地址 -->
+    <view class='addressFill-form-cityBox addressFill-form-pubBox'>
+      <picker class='addressFill-form-citypic' mode="region" value="{{[address.address_province, address.address_city, address.address_county]}}" bindchange="bindRegionChange">
+        <input placeholder='请选择省份' class='addressFill-form-citInt' placeholder-class="place-holder " disabled='true' value="{{address.address_province ? [address.address_province, address.address_city, address.address_county] : ''}}" />
+      </picker>
+    </view>
+
+    <!-- 详细地址 -->
+    <view class='addressFill-form-detailsBox addressFill-form-pubBox'>
+      <view class='addressFill-form-IntBox'>
+        <input placeholder='详细地址，如街道名称，楼层，门牌号码等' class='addressFill-Int' id="address_detail" placeholder-class="place-holder" value='{{address.address_detail}}' bindinput="bindInputCheck" />
+      </view>
+    </view>
+    <!-- 是否设为默认地址 -->
+    <view class='addressFill-form-checkBox'>
+      <view class='addressFill-checkBox-group' bindtap='bindDefaultRadioTap'>
+        <view class='addressFill-checked {{address.address_default?"addressFill-checked-active":""}}'>
+          <text class='addressFill-checked-dot  {{address.address_default?"addressFill-checked-dot-active":""}}'></text>
+        </view>
+        <text class='addressFill-checkTxt'>设为默认地址</text>
+      </view>
+    </view>
+
+    <view class='addressFill-form-checkBoxType'>
+      <view class='addressFill-checkBox-group' data-id='home' bindtap='bindLabelRadioTap' data-label="家">
+        <view class='addressFill-checked {{address.address_label == "家"?"addressFill-checked-active":""}}'>
+          <text class='addressFill-checked-dot {{address.address_label == "家"?"addressFill-checked-dot-active":""}}'></text>
+        </view>
+        <text class='addressFill-checkTxt'>家</text>
+      </view>
+
+      <view class='addressFill-checkBox-group' data-id='company' bindtap='bindLabelRadioTap' data-label="公司">
+        <view class='addressFill-checked {{address.address_label == "公司"?"addressFill-checked-active":" "}}'>
+          <text class='addressFill-checked-dot {{address.address_label == "公司"?"addressFill-checked-dot-active":""}}'></text>
+        </view>
+        <text class='addressFill-checkTxt'>公司</text>
+      </view>
+    </view>
+    <!-- 保存提交 -->
+    <button class='addressFill-form-submit' hover-class='addressFill-form-submitActive' bindtap="bindSaveButton" disabled="{{errorsCount || !(address.address_user && address.address_mobile && address.address_detail && address.address_province )}}">保存</button>
+  </form>
+
+</view>

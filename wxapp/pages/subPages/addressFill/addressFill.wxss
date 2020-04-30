@@ -1,0 +1,186 @@
+.addressFill {
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  padding: 24rpx;
+}
+
+.addressFill-form {
+  width: 100%;
+}
+
+/* 公共表单样式 */
+
+.addressFill-form-IntBox {
+  height: 88rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 22rpx;
+  /* padding-right: 35rpx; */
+  position: relative;
+}
+
+.addressFill-Int {
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+  /* line-height: 88rpx; */
+  color: #000;
+}
+
+.addressFill-Int-Error {
+  color: #ef486e;
+}
+
+
+.addressFill-IntBox-close {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 10;
+}
+
+.addressFill-IntBox-close button {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.addressFill-IntBox-close button image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.place-holder {
+  font-size: 28rpx;
+}
+
+.addressFill-IntBox-closeImg {
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+}
+
+.addressFill-IntVer {
+  position: absolute;
+  right: 35rpx;
+  font-size: 28rpx;
+  color: #ee2915;
+  display: none;
+}
+
+.addressFill-form-pubBox {
+  background-color: #fff;
+  box-shadow: -0.5rpx 3rpx 29rpx 0rpx #e1e0e0;
+  border-radius: 5px;
+}
+
+.addressFill-form-IntTxt {
+  font-size: 28rpx;
+  line-height: 88rpx;
+  color: #353535;
+}
+
+.addressFill-checkBox-group {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.addressFill-form-checkBoxType .addressFill-checkBox-group:nth-child(2) {
+  padding-left: 90rpx;
+}
+
+.addressFill-checked {
+  width: 30rpx;
+  height: 30rpx;
+  border: solid 1rpx #7f7f7f;
+  border-radius: 50%;
+  padding: 5rpx;
+}
+
+.addressFill-checked-dot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.addressFill-checked-dot-active {
+  background: #ef486e;
+}
+
+.addressFill-checked-active {
+  border: solid 1rpx #ef486e;
+}
+
+.addressFill-checkTxt {
+  font-size: 28rpx;
+  color: #353535;
+  padding-left: 24rpx;
+}
+
+.addressFill-city {
+  width: 13rpx;
+  height: 21rpx;
+  position: absolute;
+  right: 45rpx;
+}
+
+/* 公共end */
+
+.addressFill-form-phoneBox, .addressFill-form-detailsBox {
+  margin: 24rpx 0;
+}
+
+.addressFill-form-checkBox {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.addressFill-form-checkBoxType {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+/* 提交 */
+
+.addressFill-form-submit {
+  margin-top: 150rpx;
+  width: 702rpx;
+  height: 98rpx;
+  background-color: #ef486e;
+  border-radius: 5px;
+  font-size: 32rpx;
+  line-height: 98rpx;
+  color: #fff;
+}
+.addressFill-form-submit::after{
+  border: none;
+}
+.addressFill-form-submitActive {
+  background: #e43c62;
+}
+
+.addressFill-form-cityBox {
+  width: 100%;
+}
+
+.addressFill-form-citypic {
+  height: 88rpx;
+  padding-left: 22rpx;
+}
+
+.addressFill-form-citInt {
+  display: block;
+  height: 88rpx;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  color: #000;
+}
